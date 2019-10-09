@@ -1,36 +1,14 @@
-n=5
-m=n
-y=5
-t=0
-q=1
-g=0
-o=0
-p=0
-
-p=(n/2)
-p=int(p)
-for i in range(0,n):
-    if g<=(p-1):
-        for i in range (0,m):  
-            print('*', end=' ')
-        t=t+1
-        m=m-2
-        g=g+1
-        print (' ')
-        for i in range (0,t):
-            print(end='  ')
-for i in range (0,n):
-    if o<=p:
-        for i in range(0,q):
-            print('*', end=' ')
-        q=q+2
-        print(' ')
-        for i in range(1,t):
-            print(end='  ')
-        t=t-1
-        o=o+1
-            
-
-
-
-
+n=int(input('VVedite chislo n: '))
+u=0
+o=int(n/2)
+for i in range(2,o+1): 
+    c=n%i 
+    print(c)
+    if c==0:
+        u=u+1       
+    if u>=1:
+        print('chislo sostavnoe')
+        break
+if u==0:
+    print('chislo prostoe')
+        
