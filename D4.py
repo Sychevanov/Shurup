@@ -1,6 +1,6 @@
 #import math
 #from math import sqrt импорт библиотеки
-#from othermath import sqrt as sq AS это для того чтобы переимновать название функции 
+#from othermath import sqrt as sq -----  AS это для того чтобы переимновать название функции 
 
 a=(input('Vvedite a: '))
 b=(input('Vvedite b: '))

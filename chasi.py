@@ -1,7 +1,11 @@
-n=int(input('Vvedite n: '))
+n=int(input('Vvedite ne chetnoe n: '))
+while n%2==0:
+    print('Error')
+    n=int(input('Vvedite ne chetnoe n: '))
 m=n
 t=0
 p=int(n/2)
+
 for j in range(0,p):
     for i in range (0,m):  
         print('*', end=' ')
