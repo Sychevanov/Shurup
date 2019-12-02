@@ -1,5 +1,5 @@
 n=int(input('Vedite n: '))
-a = list(range(2, n+1))
+a = [list(range(2, n+1))]
 #b  = [ 0 for i in range(10) ] 
 print(a)
 s=2

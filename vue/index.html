@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="index.css">
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+        <style>
+            button.buttons{
+                width: 150px;
+                height: 30px;
+                text-align: center;
+                font: normal 17px arial;
+            }        
+        </style>
+    </head>
+    <body>
+        <div id="button"  >
+            Введите логин
+            <input v-model="login">
+            <p></p>
+            Введите пароль
+            <input v-model="pass">
+            <p></p>
+            <button class="buttons" v-on:click = "logPass">Войти</button>
+            <p>{{loginYes}}</p>
+        </div>
+    
+        <script src="main.js"></script>
+    </body>
+</html>
