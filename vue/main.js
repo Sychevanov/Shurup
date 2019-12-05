@@ -4,7 +4,8 @@ new Vue({
   data:{
     loginYes:'',
     login:'',
-    pass:''
+    pass:'',
+    
   },
   methods: {
     logPass: function (login,pass) {
