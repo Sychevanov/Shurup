@@ -9,7 +9,6 @@ from arcanum_fx.values import mana_virgil
 from arcanum_fx.fight import atack,fight,vibor_atack,miss
 from arcanum_fx.dungeon import dungeon,vibor_oglayd,oglyadivaine
 s = ['','','','']
-##hhhh
 zastavka()
 print('1. Новая игра')
 print('2. Загрузить игру')
