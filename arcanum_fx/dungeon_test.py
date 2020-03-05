@@ -1,7 +1,7 @@
 import random
 from arcanum_fx.items_mob import *
 from arcanum_fx.fight import *
-def dungeon(conteiners,items2,s,n,m):  
+def dungeon(conteiners,items2,s,n):  
     rand_cont = random.choice(conteiners)
     rand_enem = random.choice(list(enemy.keys())) #если что заменить list(enemy.keys()) на enemy str
     rand_items2 = random.choice(items2)
@@ -17,7 +17,7 @@ def dungeon(conteiners,items2,s,n,m):
                 print(f'\nВы заходите и сзади обрушивается проход, назад дороги нет')           
             p = [rand_cont,rand_enem,'Идти дальше','Осмотреться','Воспользоваться свитком вовращения']
             m = True
-            return dungeon(conteiners,items2,p,n-1,m)
+            return dungeon(conteiners,items2,p,n-1)
         if x == len(s):
             print('\nВы выходите', end = '')
             return

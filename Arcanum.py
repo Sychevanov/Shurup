@@ -3,7 +3,7 @@ from arcanum_fx.picture_draw import mashin,zastavka,dirijable,virdgil
 from arcanum_fx.vibor_char import human,elf,dwarf,gnome,hobbit,poluelf,poluorc,poluogre
 from arcanum_fx.sozdanie_char import sozdanie_char,sozdaine_char2
 from arcanum_fx.char import char
-from arcanum_fx.items_mob import items,snaryajenie,conteiners,enemy_str,items2,enemy
+from arcanum_fx.items_mob import items,snaryajenie,conteiners,items2,enemy
 from arcanum_fx.dialogs import dialog_virgil 
 from arcanum_fx.values import mana_virgil
 from arcanum_fx.fight import atack,fight,vibor_atack,miss
@@ -16,7 +16,7 @@ print('2. Загрузить игру')
 print('3. Выход')
 x = int(input('Введите число: '))
 rand_cont = random.choice(conteiners)
-rand_enem = random.choice(enemy_str)
+rand_enem = random.choice(list(enemy.keys()))
 rand_items2 = random.choice(items2)
 if x == 1: 
     sozdaine_char2()
