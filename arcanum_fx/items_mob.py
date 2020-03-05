@@ -21,6 +21,17 @@ enemy = {'Крыс': [10,2],
        'Слизня': [4,4],
        }
 
-bag = {}
+bag = {'С уроном':{},
+        'Без урона': {},
+    }
 
-#def  функцию сумки
+def bag_osmotr(bag):
+  for key in bag:
+    if key == 'Без урона':
+      for key2 in bag['Без урона']:
+          print(f'\n{key2}')
+    if key == 'С уроном':
+      for key3,val in bag['С уроном'].items():
+          print(f'\n{key3}  {val}')
+  x = input('\nДля выхода нажмите любую кнопку и Enter: ')
+  return x

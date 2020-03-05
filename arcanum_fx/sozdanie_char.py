@@ -1,3 +1,4 @@
+import os
 from arcanum_fx.vibor_char import human,elf,dwarf,gnome,hobbit,poluelf,poluorc,poluogre
 from arcanum_fx.char import char
 from arcanum_fx.items_mob import items, snaryajenie,bag
@@ -17,7 +18,8 @@ def sozdanie_char():
 def sozdaine_char2():
     while True:  
         sozdanie_char()
-        x = int(input('Введите расу. Для подробного описания, введите цифру дважды: \n'))
+        x = int(input('Введите расу. Для подробного описания, введите цифру дважды: '))
+        os.system('cls' if os.name == 'nt' else 'clear')
         if x == 11:
             human() 
         if x == 22:
@@ -90,12 +92,13 @@ def sozdaine_char2():
     print('2. Кремневый пистолет(2-3)')
     print('3. Лук(0-6)\n')        
     nach_snaryajenie = int(input('Выберите начальное снаряжение: '))
+    os.system('cls' if os.name == 'nt' else 'clear')
     if nach_snaryajenie == 1:
         snaryajenie['Руки'] =  items['Старый меч'] 
-        bag['Старый меч'] = items['Старый меч']
+        bag['С уроном']['Старый меч'] = items['Старый меч']
     if nach_snaryajenie == 2:
         snaryajenie['Руки'] =  items['Старый кременевый питослет']  
-        bag['Старый кременевый питослет'] = items['Старый кременевый питослет']
+        bag['С уроном']['Старый кременевый питослет'] = items['Старый кременевый питослет']
     if nach_snaryajenie == 3:
         snaryajenie['Руки'] =  items['Старый лук']         
-        bag['Старый лук'] = items['Старый лук']
+        bag['С уроном']['Старый лук'] = items['Старый лук']
