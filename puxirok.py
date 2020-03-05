@@ -8,7 +8,7 @@ found=False
 while not found:
     found = True
     for i in range(len(a)-1):
-        if a[i]>a[i+1]:
+        if a[i]<a[i+1]:
             c=a[i]
             a[i]=a[i+1]
             a[i+1]=c

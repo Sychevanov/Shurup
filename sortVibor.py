@@ -7,7 +7,7 @@ minn=0
 for i in range(len(a)):
     m=i 
     for j in range(i,len(a)):
-        if a[m]>a[j]:
+        if a[m]<a[j]:
             m=j       
     print(a)
     #minn=a[i]
