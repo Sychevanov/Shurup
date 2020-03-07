@@ -4,6 +4,7 @@ import time
 from arcanum_fx.values import mana_virgil
 from arcanum_fx.items_mob import snaryajenie
 from arcanum_fx.char import char
+from arcanum_fx.items_mob import bag_osmotr,bag
 def vibor_atack(od,char,health_char,full_hp):
     print(f'\nУ вас {od} ОД, что вы будете делать?')
     print('\n||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||')    
@@ -56,13 +57,31 @@ def fight(char,atack,enemy,s,mana_virgil):
                     print('\nВы промахнулись') 
                 
             if x == 2:
-                print('\nУ вас нет ничего для того, чтобы метнуть во врага')
+                if len(bag['Метательное'])!=0:
+                    for i in range(len(bag['Метательное'])):
+                        a=''
+                        a = list(bag['Метательное'][i][0].keys())[0]# вот здесь еслич то сиправить
+                        print(f'{i+1}. {a}: {bag["Метательное"][i][0][a][0]} - {bag["Метательное"][i][0][a][1]}')
+                    x = int(input('Введите что вы хоитте метнуть: '))
+                    u = list(bag["Метательное"][x-1][0].keys())[0]   
+                    atack = random.randint(bag["Метательное"][x-1][0][u][0],bag["Метательное"][x-1][0][u][1])
+                    od = od - 1
+                    print(f'\nВы Метнули во врага {u}' )  
+                    if miss():  
+                        health_enemy = health_enemy - atack 
+                        print(f'\nВы нанесли урона: {full_hp - health_enemy}')
+                        full_hp = health_enemy
+                    else: 
+                        print('\nВы промахнулись') 
+                else:
+                    print('\nУ вас нет ничего для того, чтобы метнуть во врага')
             if x == 3:
                 print('\nДоговориться не получилось')
             if x == 4:
                 if mana_virgil < 21:
                     print('\nУ вирджила закончиась мана, он не сможет вас вылечить')
                 else:
+                    od = od -1
                     char["Здоровье"] = char["Здоровье"] + 20
                     mana_virgil = mana_virgil - 20
                     print('\nВирджил произносит заклинание на непонятном вам языке, и вы чувствуете себя легче')                

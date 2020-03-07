@@ -23,6 +23,7 @@ enemy = {'Крыс': [10,2],
 
 bag = {'С уроном':{},
         'Без урона': {},
+        'Метательное': [],
     }
 
 def bag_osmotr(bag):
@@ -33,5 +34,5 @@ def bag_osmotr(bag):
     if key == 'С уроном':
       for key3,val in bag['С уроном'].items():
           print(f'\n{key3}  {val}')
-  x = input('\nДля выхода нажмите любую кнопку и Enter: ')
-  return x
+  return input('\nДля выхода нажмите любую кнопку: ')
+  

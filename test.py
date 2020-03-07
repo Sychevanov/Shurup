@@ -1,10 +1,21 @@
-import time
-import os
+import random
+bag = {'С уроном':{},
+    'Без урона': {},
+    'Метательное': [],
+}
 
+a = [{'нож': [2,2,5]}]
+b = [{'нож2': [3,3,53]}]
+bag['Метательное'].append(a)
+bag['Метательное'].append(b)
 
-while True:
-  input('Нажмите любую клавишу для продолжения')
-  
-  time.sleep(0,5)
-  os.system('cls' if os.name == 'nt' else 'clear')
-  time.sleep(0,5)
+for i in range(len(bag['Метательное'])):
+  s=''
+  s = list(bag['Метательное'][i][0].keys())[0]
+  print(s,end='')
+  print(f': {bag["Метательное"][i][0][s][0]} - {bag["Метательное"][i][0][s][1]}')
+
+x = int(input('Введите что вы хоитте метнуть'))
+u = list(bag["Метательное"][x-1][0].keys())[0]
+random.randint(bag["Метательное"][x-1][0][u][0],bag["Метательное"][x-1][0][u][1])+char['Сила']+char['Ловкость']
+
