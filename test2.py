@@ -1,15 +1,17 @@
+import random
+import random
+import os
+import time
+from arcanum_fx.values import mana_virgil
+from arcanum_fx.items_mob import *
+from arcanum_fx.char import char
+from arcanum_fx.items_mob import bag_osmotr,bag
+#random.randint(snaryajenie['Руки'][0],snaryajenie['Руки'][1])+char['Сила']+char['Ловкость']
+print(snaryajenie['Руки'])
+snaryajenie['Руки'] =  int(items['Старый меч']) 
+snaryajenie['Руки'][0]
 
-bag = {'С уроном':{},
-    'Без урона': {},
-    'Метательное': [],
-}
 
-a = [{'нож': [0,2,5]}]
-b = [{'нож2': [0,2,53]}]
-bag['Метательное'].append(a)
-bag['Метательное'].append(b)
 
-j = 0
-for key in bag['Метательное']:
-    print(str(key[0].keys()))
-    j=j+1
+
+

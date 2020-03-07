@@ -18,7 +18,7 @@ def dungeon(conteiners,items2,s,n,m):
         if x == 2:
             if s[1][len(s[1])-11:] != '(Осмотрено)'  :        
                 print(f'\nВы начинаете битву против {s[1]}')
-                if  fight(char,atack,enemy,s[1],mana_virgil)!= True:
+                if  fight(char,enemy,s[1],mana_virgil)!= True:
                     s[1] = s[1] + '(Осмотрено)'
             else:
                 print('\nВы их уже убили')             

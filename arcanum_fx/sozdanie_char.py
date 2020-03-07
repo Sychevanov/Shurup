@@ -95,10 +95,10 @@ def sozdaine_char2():
     os.system('cls' if os.name == 'nt' else 'clear')
     if nach_snaryajenie == 1:
         snaryajenie['Руки'] =  items['Старый меч'] 
-        bag['С уроном']['Старый меч'] = items['Старый меч']
+        bag['Оружие']['Старый меч'] = items['Старый меч']
     if nach_snaryajenie == 2:
         snaryajenie['Руки'] =  items['Старый кременевый питослет']  
-        bag['С уроном']['Старый кременевый питослет'] = items['Старый кременевый питослет']
+        bag['Оружие']['Старый кременевый питослет'] = items['Старый кременевый питослет']
     if nach_snaryajenie == 3:
         snaryajenie['Руки'] =  items['Старый лук']         
-        bag['С уроном']['Старый лук'] = items['Старый лук']
+        bag['Оружие']['Старый лук'] = items['Старый лук']
