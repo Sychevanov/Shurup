@@ -40,15 +40,26 @@ def dungeon(conteiners,items2,s,n,m):
             else:
                 print('\nЗдесь уже ничего нет')        
         if x == len(s):
-            print('\nВы выходите', end = '')
-            return
+            if m:
+                if len(bag['Предметы']) != 0:
+                    i = 0
+                    for key in bag['Предметы']:
+                        i = i + 1
+                        if i == len(bag['Предметы']):
+                            print('У вас нет Свитка возвращения')# протестировать свиток вовзарщения
+                        if key == 'Свиток возвращения':
+                            print(f'Вы использовали свиток возвращения и телепортируетесь. ')
+                            return
+                else:
+                    print('Ваша сумка пуста')
+            else:
+                print('\nВы выходите', end = '')
+                return
         if x == 6:
-            while True:
-                if bag_osmotr(bag):
-                    os.system('cls' if os.name == 'nt' else 'clear')
-                    break
-            #здесь поставтьи иф, если есть свиток вовзарщения тошгда ретерн, иначе не ретерн
-        #вот здесь добавить иф с сумкой, если да то вызов сумки
+            bag_osmotr(bag)
+            os.system('cls' if os.name == 'nt' else 'clear')
+            
+
     
 def oglyadivaine(s):
     print('\nВы решили оглядеться.')

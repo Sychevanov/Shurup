@@ -19,7 +19,7 @@ def vibor_atack(od,char,health_char,full_hp):
 def miss(shance):
     if random.randint(0,100)<shance:
         return True
-def atack(snaryajenie,char):
+def atack(snaryajenie,char): # вот эта функция не работает
     return random.randint(snaryajenie['Руки'][0],snaryajenie['Руки'][1])+char['Сила']+char['Ловкость']
 def fight(char,enemy,s,mana_virgil):
     if miss(50):
@@ -53,6 +53,7 @@ def fight(char,enemy,s,mana_virgil):
                 atack = random.randint(snaryajenie['Руки'][0],snaryajenie['Руки'][1])+char['Сила']+char['Ловкость']
                 if miss(50):  
                     health_enemy = health_enemy - atack
+                    #health_enemy = health_enemy - atack(snaryajenie,char) вот здесь почему-о не работает функция атаки
                     print(f'\nВы нанесли урона: {full_hp - health_enemy}')
                     full_hp = health_enemy
                 else: 
