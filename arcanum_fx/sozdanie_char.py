@@ -96,6 +96,6 @@ def sozdaine_char2():
     if nach_snaryajenie == 1:
         snaryajenie['Руки'].append({'Старый меч':[1,4]})
     if nach_snaryajenie == 2:
-        snaryajenie['Руки'].append({'Старый кременевый питослет':[2,3]})
+        snaryajenie['Руки'].append({'Старый кремневый пистолет':[2,3]})
     if nach_snaryajenie == 3:
         snaryajenie['Руки'].append({'Старый лук':[0,6]})   

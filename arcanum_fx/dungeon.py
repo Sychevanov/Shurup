@@ -5,13 +5,16 @@ from arcanum_fx.fight import *
 def dungeon(conteiners,items2,s,n,m):  
     rand_cont = random.choice(conteiners)
     rand_enem = random.choice(list(enemy.keys())) #если что заменить list(enemy.keys()) на enemy str
-    rand_items2 = random.choice(items2)
+    rand_items = random.choice(list(items.items()))
+    rand_items2 = random.choice(list(items.items()))# в рвнд итем в йункцию добваления в сумку нужно передавать элемент словаря а передается тольок ключ
     while True:
+        
         x = oglyadivaine(s)  
         os.system('cls' if os.name == 'nt' else 'clear')
         if x == 1:    
             if s[0][len(s[0])-11:] != '(Осмотрено)'  :            
-                print(f'\nОсматривая {s[0]} Вы находите {random.choice(items2)} и кладете к себе в сумку')
+                print(f'\nОсматривая {s[0]} Вы находите {rand_items[0]} и кладете к себе в сумку') #здесь может быть добавить взять предмет или не взять
+                items_in_bag({rand_items[0]:rand_items[1]},bag) #не видит в бег осмотор новых вещей
                 s[0] = s[0] + '(Осмотрено)'                 
             else:
                 print('\nЗдесь уже ничего нет')       
@@ -31,11 +34,12 @@ def dungeon(conteiners,items2,s,n,m):
                 print(f'\nВы заходите, и сзади обрушивается проход, назад дороги нет')           
             p = [rand_cont,rand_enem,'Идти дальше','Осмотреться','Воспользоваться свитком вовращения']
             m = True
-            return dungeon(conteiners,items2,p,n-1,m)
+            return dungeon(conteiners,items,p,n-1,m)
         if x == 4:
             if s[3][len(s[3])-11:] != '(Осмотрено)'  :              
                 print(f'\nВы видите {random.choice(conteiners)}. ')
-                print(f'Шаря, вы нашли {random.choice(items2)} и взяли это себе')
+                print(f'Шаря, вы нашли {rand_items2[0]} и взяли это себе')
+                items_in_bag({rand_items2[0]:rand_items2[1]},bag)
                 s[3] = s[3] + '(Осмотрено)'
             else:
                 print('\nЗдесь уже ничего нет')        
@@ -43,7 +47,7 @@ def dungeon(conteiners,items2,s,n,m):
             if m:
                 if len(bag['Предметы']) != 0:
                     i = 0
-                    for key in bag['Предметы']:
+                    for key in bag['Предметы'][0]:
                         i = i + 1
                         if i == len(bag['Предметы']):
                             print('У вас нет Свитка возвращения')# протестировать свиток вовзарщения
