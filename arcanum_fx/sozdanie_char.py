@@ -94,11 +94,8 @@ def sozdaine_char2():
     nach_snaryajenie = int(input('Выберите начальное снаряжение: '))
     os.system('cls' if os.name == 'nt' else 'clear')
     if nach_snaryajenie == 1:
-        snaryajenie['Руки'] =  items['Старый меч'] 
-        bag['Оружие']['Старый меч'] = items['Старый меч']
+        snaryajenie['Руки'].append({'Старый меч':[1,4]})
     if nach_snaryajenie == 2:
-        snaryajenie['Руки'] =  items['Старый кременевый питослет']  
-        bag['Оружие']['Старый кременевый питослет'] = items['Старый кременевый питослет']
+        snaryajenie['Руки'].append({'Старый кременевый питослет':[2,3]})
     if nach_snaryajenie == 3:
-        snaryajenie['Руки'] =  items['Старый лук']         
-        bag['Оружие']['Старый лук'] = items['Старый лук']
+        snaryajenie['Руки'].append({'Старый лук':[0,6]})   

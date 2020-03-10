@@ -20,7 +20,7 @@ def miss(shance):
     if random.randint(0,100)<shance:
         return True
 def atack(snaryajenie,char): # вот эта функция не работает
-    return random.randint(snaryajenie['Руки'][0],snaryajenie['Руки'][1])+char['Сила']+char['Ловкость']
+    return random.randint(snaryajenie['Руки'][0][0],snaryajenie['Руки'][0][1])+char['Сила']+char['Ловкость']
 def fight(char,enemy,s,mana_virgil):
     if miss(50):
         od = 1
@@ -50,7 +50,7 @@ def fight(char,enemy,s,mana_virgil):
             if x == 1:
                 od = od - 1
                 print('\nВы атакуете')  
-                atack = random.randint(snaryajenie['Руки'][0],snaryajenie['Руки'][1])+char['Сила']+char['Ловкость']
+                atack = random.randint(list(snaryajenie['Руки'][0].values())[0][0],list(snaryajenie['Руки'][0].values())[0][1])+char['Сила']+char['Ловкость']
                 if miss(50):  
                     health_enemy = health_enemy - atack
                     #health_enemy = health_enemy - atack(snaryajenie,char) вот здесь почему-о не работает функция атаки
@@ -63,17 +63,17 @@ def fight(char,enemy,s,mana_virgil):
                 if len(bag['Метательное'])!=0:
                     for i in range(len(bag['Метательное'])):
                         a=''
-                        a = list(bag['Метательное'][i][0].keys())[0]# вот здесь еслич то сиправить
-                        print(f'{i+1}. {a}: {bag["Метательное"][i][0][a][0]} - {bag["Метательное"][i][0][a][1]}')
+                        a = list(bag['Метательное'][i].keys())[0]# вот здесь еслич то сиправить и нижке, потому что нао чтобы был массив словарей а не массив массивов внутри слоаврь
+                        print(f'{i+1}. {a}: {bag["Метательное"][i][a][0]} - {bag["Метательное"][i][a][1]}')
                     print('------------------------')
                     print('6. Назад')
                     x = int(input('Введите что вы хоитте метнуть: '))
                     os.system('cls' if os.name == 'nt' else 'clear')
                     if x != 6:
                         od = od - 1
-                        u = list(bag["Метательное"][x-1][0].keys())[0]   
-                        atack = random.randint(bag["Метательное"][x-1][0][u][0],bag["Метательное"][x-1][0][u][1])
-                        shanse_popad = bag["Метательное"][x-1][0][u][2]
+                        u = list(bag["Метательное"][x-1].keys())[0]   
+                        atack = random.randint(bag["Метательное"][x-1][u][0],bag["Метательное"][x-1][u][1])
+                        shanse_popad = bag["Метательное"][x-1][u][2]
                         print(f'\nВы Метнули во врага {u}' ) 
                         del bag['Метательное'][x-1] 
                         if miss(shanse_popad):  

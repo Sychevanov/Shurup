@@ -21,18 +21,33 @@ enemy = {'Крыс': [10,2],
        'Слизня': [4,4],
        }
 
-bag = {'Оружие':{},
-        'Предметы': {},
+bag = {'Оружие':[],
+        'Предметы': [],
         'Метательное': [],
     }
 
 def bag_osmotr(bag):
+  print(bag)
   for key in bag:
     if key == 'Предметы':
-      for key2 in bag['Предметы']:
-          print(f'\n{key2}')
+      if len(bag['Предметы']) != 0:
+        for key2 in bag['Предметы'][0]:
+            print(f'\n{key2}')
     if key == 'Оружие':
-      for key3,val in bag['Оружие'].items():
-          print(f'\n{key3}  {val}(В Руке)') #доделать что в руках, а что в сумке
+      if len(bag['Оружие']) != 0:
+        for key3,val in bag['Оружие'][0].items():
+            print(f'\n{key3}  {val}') #доделать что в руках, а что в сумке
+    if key == 'Метательное':
+      if len(bag['Метательное']) != 0:
+        for key4,val2 in bag['Метательное'][0].items():
+            print(f'\n{key4}  {val2}')
   return input('\nДля выхода нажмите любую кнопку: ')
+  
+def items_in_bag(rand_items,bag):
+  if len(list(rand_items.values())[0]) == 3:
+    bag['Метательное'].append(rand_items)
+  if len(list(rand_items.values())[0]) == 2:
+    bag['Оружие'].append(rand_items)
+  if len(list(rand_items.values())[0]) == 1:
+    bag['Предметы'].append(rand_items)
   
