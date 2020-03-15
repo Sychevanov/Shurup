@@ -76,7 +76,18 @@ def bag_osmotr(bag):
     if len(list(bag[i].values())[0]) == 3:
       print(i+1,'.',list(bag[i].keys())[0], list(bag[i].values())[0][0],'-',list(bag[i].values())[0][1])
   return input('\nДля выхода нажмите любую кнопку: ') 
-  
+
+def bag_osmotr_met(bag):
+  for i in range(0,len(bag)):
+    if len(list(bag[i].values())[0]) == 1:
+      print(i+1,'.',list(bag[i].keys())[0])
+    if len(list(bag[i].values())[0]) == 2:
+      print(i+1,'.',list(bag[i].keys())[0], list(bag[i].values())[0][0],'-', list(bag[i].values())[0][1])
+    if len(list(bag[i].values())[0]) == 3:
+      print(i+1,'.',list(bag[i].keys())[0], list(bag[i].values())[0][0],'-',list(bag[i].values())[0][1])
+  x = int(input('\nВведите, что вы хотите метнуть: ')) 
+  return x
+
 def items_in_bag2(rand_items,bag):
   if len(list(rand_items.values())[0]) == 3:
     bag['Метательное'].append(rand_items)

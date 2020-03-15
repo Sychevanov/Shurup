@@ -60,30 +60,24 @@ def fight(char,enemy,s,mana_virgil):
                     print('\nВы промахнулись') 
                 
             if x == 2:
-                if len(bag['Метательное'])!=0:
-                    for i in range(len(bag['Метательное'])): #сделать открыттие сумки, вернуть свою фуцнкцию,  и чтобы открывалсь вся сумка, можно выбрать все, но акетуально только метательное
-                        a=''
-                        a = list(bag['Метательное'][i].keys())[0]# вот здесь еслич то сиправить и нижке, потому что нао чтобы был массив словарей а не массив массивов внутри слоаврь
-                        print(f'{i+1}. {a}: {bag["Метательное"][i][a][0]} - {bag["Метательное"][i][a][1]}')
-                    print('------------------------')
-                    print('6. Назад')
-                    x = int(input('Введите что вы хоитте метнуть: '))
+                if len(bag) != 0:                 
+                    x = bag_osmotr_met(bag)
                     os.system('cls' if os.name == 'nt' else 'clear')
-                    if x != 6:
+                    if len(list(bag[x-1].values())[0]) != 3:  
+                        print(f'Вы можете метнуть {list(bag[x-1].keys())[0]}, но в этом не будет никакого смысла, только если разозлить')  
+                        # и сюда добавить хотите ли вы метнуть?    
+                    if len(list(bag[x-1].values())[0]) == 3:          
                         od = od - 1
-                        u = list(bag["Метательное"][x-1].keys())[0]   
-                        atack = random.randint(bag["Метательное"][x-1][u][0],bag["Метательное"][x-1][u][1])
-                        shanse_popad = bag["Метательное"][x-1][u][2]
-                        print(f'\nВы Метнули во врага {u}' ) 
-                        del bag['Метательное'][x-1] 
+                        shanse_popad = list(bag[x-1].values())[0][2]
+                        atack = random.randint(list(bag[x-1].values())[0][0],list(bag[x-1].values())[0][1])
                         if miss(shanse_popad):  
                             health_enemy = health_enemy - atack 
-                            print(f'\nВы нанесли урона: {full_hp - health_enemy}')
+                            print(f'\nВы метнули {list(bag[x-1].keys())[0]} и нанесли урона: {full_hp - health_enemy}')
                             full_hp = health_enemy
+                            del bag[x-1]
                         else: 
                             print('\nВы промахнулись') 
-                    elif x==6:
-                        print('Вы передумали')
+                    x = 0
                 else:
                     print('\nУ вас нет ничего для того, чтобы метнуть во врага')
             if x == 3:
