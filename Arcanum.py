@@ -16,20 +16,20 @@ print('1. Новая игра')
 print('2. Загрузить игру')
 print('3. Выход')
 x = int(input('Введите число: '))
-os.system('cls' if os.name == 'nt' else 'clear')
+os.system('cls' if os.name == 'nt' else 'clear')      #, и кореекстность ввода везде,  систему опыта, сохранение и загрузку, меню
 if x == 1: 
-    sozdaine_char2()
+    name = sozdaine_char2()
     dirijable()
     dialog_virgil(s)
     rand_items = {'Старый меч':[1,4]}
-    items_in_bag(rand_items,bag)
+    items_in_bag(rand_items)
     rand_items = {'Свиток возвращения':[10]}
-    items_in_bag(rand_items,bag)
+    items_in_bag(rand_items)
     print('\nПосле разговора с Вирджилом, Вы решили осмотреться.\nПервым делом подошли к мертвому гному и нашли у него паспорт на имя Престона Рэдклиффа, посчитав, что вам это нужно, забрали его себе')
-    rand_items = {'нож':[1,4,90]}
-    items_in_bag(rand_items,bag)
+    rand_items = {'Метательный нож':[1,4,90]}
+    items_in_bag(rand_items)
     rand_items = {'Паспорт на имя Престона Редклифа':[10]}
-    items_in_bag(rand_items,bag)
+    items_in_bag(rand_items)
     input('\nНажмите любую клавишу для продолжения: ')
     os.system('cls' if os.name == 'nt' else 'clear')
     s = ['Мертвого человека','Волков','Пещеру','Осмотреться','Идти с Вирджилом']
@@ -37,7 +37,8 @@ if x == 1:
         print('\n\nПроходя дальше вы видите духа, парящим над бездыханным телом. Подходя ближе, вы ощущаете себя дурно\nно из-за любопытсва, начинаете с ним диалог')
     print('\n\nПроходя мимо разрушенного дирижабля, на теле одного из пассажиров, мы замечаете поломанный фотоаппарат, решив, что этот странный механизм мертовому все равно не нужен, положили к себе в сумку.')
     rand_items = {'Разбитый фотоаппарат':[20]}
-    items_in_bag(rand_items,bag)
+    items_in_bag(rand_items)
+    print('Пре-альфа тест окончен')
     
 
     

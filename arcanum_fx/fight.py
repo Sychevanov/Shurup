@@ -30,10 +30,10 @@ def fight(char,enemy,s,mana_virgil):
     health_enemy = enemy[s][0]
     health_char = char['Здоровье']
     full_hp = enemy[s][0]
-    i=0
+    i=1
     while True:
         x = 0
-        i=i+1
+        
         if health_enemy < 1:
             print('----------------------------------------------------------------------------------------------------')
             print('                                                 Вы победили')
@@ -45,7 +45,7 @@ def fight(char,enemy,s,mana_virgil):
         if od > 0:           
             x = vibor_atack(od,char,health_char,full_hp) 
             print('----------------------------------------------------------------------------------------------------')
-            print(f'                                                 Ваш ход ')
+            print(f'                                                 Ваш ход {i}')
             print('------------------------------------------------------------------------------------------------------') 
             if x == 1:
                 od = od - 1
@@ -60,23 +60,33 @@ def fight(char,enemy,s,mana_virgil):
                     print('\nВы промахнулись') 
                 
             if x == 2:
-                if len(bag) != 0:                 
-                    x = bag_osmotr_met(bag)
-                    os.system('cls' if os.name == 'nt' else 'clear')
-                    if len(list(bag[x-1].values())[0]) != 3:  
-                        print(f'Вы можете метнуть {list(bag[x-1].keys())[0]}, но в этом не будет никакого смысла, только если разозлить')  
-                        # и сюда добавить хотите ли вы метнуть?    
-                    if len(list(bag[x-1].values())[0]) == 3:          
-                        od = od - 1
-                        shanse_popad = list(bag[x-1].values())[0][2]
-                        atack = random.randint(list(bag[x-1].values())[0][0],list(bag[x-1].values())[0][1])
-                        if miss(shanse_popad):  
-                            health_enemy = health_enemy - atack 
-                            print(f'\nВы метнули {list(bag[x-1].keys())[0]} и нанесли урона: {full_hp - health_enemy}')
-                            full_hp = health_enemy
-                            del bag[x-1]
+                if len(bag) != 0:       
+                    while True:       
+                        x = bag_osmotr(bag,snaryajenie)
+                        os.system('cls' if os.name == 'nt' else 'clear')
+                        print('----------------------------------------------------------------------------------------------------')
+                        print(f'                                                 Ваш ход {i}')
+                        print('------------------------------------------------------------------------------------------------------') 
+                        if x != len(bag)+1:   
+                            if len(list(bag[x-1].values())[0]) != 3:  
+                                print(f'\nВы можете метнуть {list(bag[x-1].keys())[0]}, но в этом не будет никакого смысла, только если разозлить')  
+                                #i = i - 1
+                                # и сюда добавить хотите ли вы метнуть?    
+                            if len(list(bag[x-1].values())[0]) == 3:          
+                                od = od - 1
+                                shanse_popad = list(bag[x-1].values())[0][2]
+                                atack = random.randint(list(bag[x-1].values())[0][0],list(bag[x-1].values())[0][1])
+                                if miss(shanse_popad):  
+                                    health_enemy = health_enemy - atack 
+                                    print(f'\nВы метнули {list(bag[x-1].keys())[0]} и нанесли урона: {full_hp - health_enemy}')
+                                    full_hp = health_enemy
+                                else: 
+                                    print(f'\nВы кидаете {list(bag[x-1].keys())[0]} и промахнулись')    
+                                del bag[x-1]
+                                break
                         else: 
-                            print('\nВы промахнулись') 
+                            print('Вы передумали')
+                            break
                     x = 0
                 else:
                     print('\nУ вас нет ничего для того, чтобы метнуть во врага')
@@ -99,9 +109,10 @@ def fight(char,enemy,s,mana_virgil):
                     break
                 else:
                     print('Сбежать не удалось')
+            i = i + 1
         elif od == 0:
             print('----------------------------------------------------------------------------------------------------')
-            print(f'                                                 Ход Врага {i-1}')
+            print(f'                                                 Ход Врага {i}')
             print('----------------------------------------------------------------------------------------------------')
             print('\nВраг атакует')
             health_char = health_char - atack_enemy

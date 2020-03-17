@@ -87,15 +87,21 @@ def sozdaine_char2():
             char['Сила'] = 6
             char['Защита'] = 2
             break
-    print('||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||\n')
+    name = input('\nВведите имя: ')
+    os.system('cls' if os.name == 'nt' else 'clear')
+    print('\n||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||\n')
     print('1. Меч(1-4)')
     print('2. Кремневый пистолет(2-3)')
     print('3. Лук(0-6)\n')        
     nach_snaryajenie = int(input('Выберите начальное снаряжение: '))
     os.system('cls' if os.name == 'nt' else 'clear')
     if nach_snaryajenie == 1:
-        snaryajenie['Руки'].append({'Старый меч':[1,4]})
+        #snaryajenie['Руки'].append({'Старый меч':[1,4]})
+        snaryajenie['Руки'] = {'Старый меч':[1,4]}
     if nach_snaryajenie == 2:
-        snaryajenie['Руки'].append({'Старый кремневый пистолет':[2,3]})
+        #snaryajenie['Руки'].append({'Старый кремневый пистолет':[2,3]})
+        snaryajenie['Руки'] = {'Старый кремневый пистолет':[2,3]}
     if nach_snaryajenie == 3:
-        snaryajenie['Руки'].append({'Старый лук':[0,6]})   
+        #snaryajenie['Руки'].append({'Старый лук':[0,6]})   
+        snaryajenie['Руки'] = {'Старый лук':[0,6]}
+    return name

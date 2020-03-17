@@ -24,3 +24,36 @@ if x == 2:
                             print('\nВы промахнулись') 
                     elif x==6:
                         print('Вы передумали')
+
+def items_in_bag2(rand_items,bag):
+  if len(list(rand_items.values())[0]) == 3:
+    bag['Метательное'].append(rand_items)
+  if len(list(rand_items.values())[0]) == 2:
+    bag['Оружие'].append(rand_items)
+  if len(list(rand_items.values())[0]) == 1:
+    bag['Предметы'].append(rand_items)
+    
+def bag_osmotr2(bag):
+      for key in bag:
+    if key == 'Предметы':
+      if len(bag['Предметы']) != 0:
+        print('--------------')
+        print('-  Предметы  -')
+        print('--------------\n')
+        for i in range(0,len(bag['Предметы'])):
+          print(i+1,'.',list(bag['Предметы'][i].keys())[0])
+    if key == 'Оружие':
+      if len(bag['Оружие']) != 0:
+        print('\n--------------')
+        print('-   Оружие   -')
+        print('--------------\n')
+        for j in range(0,len(bag['Оружие'])):
+          print(j+1+len(bag['Предметы']),'.',list(bag['Оружие'][j].keys())[0], list(bag['Оружие'][j].values())[0][0],'-', list(bag['Оружие'][j].values())[0][1])
+    if key == 'Метательное':
+      if len(bag['Метательное']) != 0:
+        print('\n-------------')
+        print('-Метательное-')
+        print('-------------\n')
+        for k in range(0,len(bag['Метательное'])):
+          print(k+1+len(bag['Предметы'])+len(bag['Оружие']),'.',list(bag['Метательное'][k].keys())[0], list(bag['Метательное'][k].values())[0][0],'-',list(bag['Метательное'][k].values())[0][1])
+  return input('\nДля выхода нажмите любую кнопку: ') 

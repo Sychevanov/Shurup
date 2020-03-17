@@ -1,6 +1,6 @@
 import random
 items =            {'Старый меч': [1,4],
-    'Старый кременевый питослет': [2,3],
+    'Старый кременевый пистолет': [2,3],
                     'Старый лук': [0,6],
                     'Хлам':[5],
                     'Части пистолета':[7],
@@ -13,13 +13,13 @@ items =            {'Старый меч': [1,4],
                     'Зелье здоровья':[15],
                     'Припарку':[15],
                     }
-snaryajenie = {'Голова': 0,
-              'Куртка': 0,
-               'Обувь': 0,
-                'Руки': [],
-             'Кольцо1': 0,
-             'Кольцо2': 0,
-            'Ожерелье': 0,}
+snaryajenie = {'Голова': {},
+              'Куртка': {},
+               'Обувь': {},
+                'Руки': {},
+             'Кольцо1': {},
+             'Кольцо2': {},
+            'Ожерелье': {},}
 conteiners = ["Ящик","Бочка(у)","Деревянный Сундук","Комод","Тумба(у)","Ведро","Контрейнер","Шкаф"]
 #enemy_str = ['Крыс','Волков','Гоблинов','Медведей','Гарпий','Слизня','Чупокабру']
 items2 = ['','','','','','','','','','']
@@ -34,67 +34,52 @@ enemy = {'Крыс': [10,2],
        'Слизня': [4,4],
        }
 
-bag2 = {
-        'Предметы': [],
-        'Оружие':[],
-        'Метательное': [],
-    }
+
 
 bag = []
+      
 
-def bag_osmotr2(bag):
-  for key in bag:
-    if key == 'Предметы':
-      if len(bag['Предметы']) != 0:
-        print('--------------')
-        print('-  Предметы  -')
-        print('--------------\n')
-        for i in range(0,len(bag['Предметы'])):
-          print(i+1,'.',list(bag['Предметы'][i].keys())[0])
-    if key == 'Оружие':
-      if len(bag['Оружие']) != 0:
-        print('\n--------------')
-        print('-   Оружие   -')
-        print('--------------\n')
-        for j in range(0,len(bag['Оружие'])):
-          print(j+1+len(bag['Предметы']),'.',list(bag['Оружие'][j].keys())[0], list(bag['Оружие'][j].values())[0][0],'-', list(bag['Оружие'][j].values())[0][1])
-    if key == 'Метательное':
-      if len(bag['Метательное']) != 0:
-        print('\n-------------')
-        print('-Метательное-')
-        print('-------------\n')
-        for k in range(0,len(bag['Метательное'])):
-          print(k+1+len(bag['Предметы'])+len(bag['Оружие']),'.',list(bag['Метательное'][k].keys())[0], list(bag['Метательное'][k].values())[0][0],'-',list(bag['Метательное'][k].values())[0][1])
-  return input('\nДля выхода нажмите любую кнопку: ')       
-
-def bag_osmotr(bag):
+def bag_osmotr(bag,snaryajenie):
+  sortirovka(bag)
+  print('--------------')
+  print('-  Предметы  -')
+  print('--------------\n')
   for i in range(0,len(bag)):
     if len(list(bag[i].values())[0]) == 1:
       print(i+1,'.',list(bag[i].keys())[0])
-    if len(list(bag[i].values())[0]) == 2:
-      print(i+1,'.',list(bag[i].keys())[0], list(bag[i].values())[0][0],'-', list(bag[i].values())[0][1])
-    if len(list(bag[i].values())[0]) == 3:
-      print(i+1,'.',list(bag[i].keys())[0], list(bag[i].values())[0][0],'-',list(bag[i].values())[0][1])
-  return input('\nДля выхода нажмите любую кнопку: ') 
-
-def bag_osmotr_met(bag):
+  print('\n--------------')
+  print('-   Оружие   -')
+  print('--------------\n')
   for i in range(0,len(bag)):
-    if len(list(bag[i].values())[0]) == 1:
-      print(i+1,'.',list(bag[i].keys())[0])
     if len(list(bag[i].values())[0]) == 2:
       print(i+1,'.',list(bag[i].keys())[0], list(bag[i].values())[0][0],'-', list(bag[i].values())[0][1])
+  print('\n-------------')
+  print('-Метательное-')
+  print('-------------\n')
+  for i in range(0,len(bag)):
     if len(list(bag[i].values())[0]) == 3:
       print(i+1,'.',list(bag[i].keys())[0], list(bag[i].values())[0][0],'-',list(bag[i].values())[0][1])
-  x = int(input('\nВведите, что вы хотите метнуть: ')) 
-  return x
+  print('--------------')
+  print(f'\n{len(bag)+1}. Назад\n')
+  return int(input('Выберете предмет, который хотите взять в руки: '))
 
-def items_in_bag2(rand_items,bag):
-  if len(list(rand_items.values())[0]) == 3:
-    bag['Метательное'].append(rand_items)
-  if len(list(rand_items.values())[0]) == 2:
-    bag['Оружие'].append(rand_items)
-  if len(list(rand_items.values())[0]) == 1:
-    bag['Предметы'].append(rand_items)
+def type_predmet(item):
+    if len(list(item.values())[0]) == 1:
+      return 'Предмет'
+    if len(list(item.values())[0]) == 2:
+      return 'Оружие'
+    if len(list(item.values())[0]) == 3:
+      return 'Метательное'
+      
 
-def items_in_bag(rand_items,bag):
+def items_in_bag(rand_items):
   bag.append(rand_items)
+
+def sortirovka(a):
+  found=False
+  while not found:
+      found = True
+      for i in range(len(a)-1):
+          if len(list(bag[i].values())[0])>len(list(bag[i+1].values())[0]):
+            bag[i],bag[i+1] = bag[i+1],bag[i]
+            found = False

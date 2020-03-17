@@ -2,6 +2,8 @@ import os
 import random
 from arcanum_fx.items_mob import *
 from arcanum_fx.fight import *
+from arcanum_fx.menu import menu
+from arcanum_fx.char import info_char,jornal
 def dungeon(conteiners,items2,s,n,m):  
     rand_cont = random.choice(conteiners)
     rand_enem = random.choice(list(enemy.keys())) #если что заменить list(enemy.keys()) на enemy str
@@ -14,7 +16,7 @@ def dungeon(conteiners,items2,s,n,m):
         if x == 1:    
             if s[0][len(s[0])-11:] != '(Осмотрено)'  :            
                 print(f'\nОсматривая {s[0]} Вы находите {rand_items[0]} и кладете к себе в сумку') #здесь может быть добавить взять предмет или не взять
-                items_in_bag({rand_items[0]:rand_items[1]},bag) #не видит в бег осмотор новых вещей
+                items_in_bag({rand_items[0]:rand_items[1]}) #не видит в бег осмотор новых вещей
                 s[0] = s[0] + '(Осмотрено)'                 
             else:
                 print('\nЗдесь уже ничего нет')       
@@ -39,7 +41,7 @@ def dungeon(conteiners,items2,s,n,m):
             if s[3][len(s[3])-11:] != '(Осмотрено)'  :              
                 print(f'\nВы видите {random.choice(conteiners)}. ')
                 print(f'Шаря, вы нашли {rand_items2[0]} и взяли это себе')
-                items_in_bag({rand_items2[0]:rand_items2[1]},bag)
+                items_in_bag({rand_items2[0]:rand_items2[1]})
                 s[3] = s[3] + '(Осмотрено)'
             else:
                 print('\nЗдесь уже ничего нет')        
@@ -62,9 +64,41 @@ def dungeon(conteiners,items2,s,n,m):
                 print('\nВы выходите', end = '')
                 return
         if x == 6:
-            bag_osmotr(bag)
+            while True:          
+                x = bag_osmotr(bag,snaryajenie)   
+                if x == len(bag)+1:
+                    break
+                if x>0 and x<len(bag)+1:
+                    if type_predmet(bag[x-1]) != 'Оружие' :
+                        os.system('cls' if os.name == 'nt' else 'clear')
+                        print(f'Думаете с {bag[x-1]} в руках вы нанесете врагу серьезный урон?\nСоветую взять оружие\n')
+                        input('Enter для продолжения: ')
+                    else: 
+                        os.system('cls' if os.name == 'nt' else 'clear')
+                        y = int(input(f'Хотите взять в руки {bag[x-1]}?\n\n1. Да  \n2. Нет\n'))
+                        os.system('cls' if os.name == 'nt' else 'clear')
+                        if y == 1:
+                            print(f'Вы кладете в сумку {snaryajenie["Руки"]}\n')
+                            items_in_bag(snaryajenie['Руки'])
+                            snaryajenie['Руки'] = bag[x-1] 
+                            print(f'Вы взяли в руки {bag[x-1]}\n')                        
+                            del bag[x-1]
+                            input('Enter для продолжения: ')
+                        else:
+                            print('Вы передумали')
+                os.system('cls' if os.name == 'nt' else 'clear')
             os.system('cls' if os.name == 'nt' else 'clear')
-            
+            x = 0
+        if x == 7:
+            info_char(char,snaryajenie)
+            os.system('cls' if os.name == 'nt' else 'clear')
+        if x == 8:
+            jornal(bag)
+            os.system('cls' if os.name == 'nt' else 'clear')
+        if x == 9:
+            menu()
+            os.system('cls' if os.name == 'nt' else 'clear')
+        
 
     
 def oglyadivaine(s):
@@ -74,6 +108,10 @@ def oglyadivaine(s):
         print(f'{i+1}. {s[i]}')
     print('------------------------')
     print('6. Сумка') #вот здесь и ниже сделтаь на проверку инт стр, тчобы не вводить 6, а ввовдить буклву B
+    print('7. О персонаже')
+    print('8. Журнал(В разработке) ')
+    print('------------------------')
+    print('9. Меню')
     x = int(input('\nКуда вы решите подойти: '))
     print('\n\n\n\n\n\n\n||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||')
     return x
