@@ -1,4 +1,5 @@
 import random
+from arcanum_fx.proverka import proverka 
 items =            {'Старый меч': [1,4],
     'Старый кременевый пистолет': [2,3],
                     'Старый лук': [0,6],
@@ -61,8 +62,8 @@ def bag_osmotr(bag,snaryajenie):
       print(i+1,'.',list(bag[i].keys())[0], list(bag[i].values())[0][0],'-',list(bag[i].values())[0][1])
   print('--------------')
   print(f'\n{len(bag)+1}. Назад\n')
-  return int(input('Выберете предмет, который хотите взять в руки: '))
-
+  x = proverka('Выберете предмет, который хотите взять в руки: ',1,len(bag)+1)
+  return x
 def type_predmet(item):
     if len(list(item.values())[0]) == 1:
       return 'Предмет'
@@ -75,11 +76,11 @@ def type_predmet(item):
 def items_in_bag(rand_items):
   bag.append(rand_items)
 
-def sortirovka(a):
+def sortirovka(bag):
   found=False
   while not found:
       found = True
-      for i in range(len(a)-1):
+      for i in range(len(bag)-1):
           if len(list(bag[i].values())[0])>len(list(bag[i+1].values())[0]):
             bag[i],bag[i+1] = bag[i+1],bag[i]
             found = False

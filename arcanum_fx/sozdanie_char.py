@@ -2,6 +2,7 @@ import os
 from arcanum_fx.vibor_char import human,elf,dwarf,gnome,hobbit,poluelf,poluorc,poluogre
 from arcanum_fx.char import char
 from arcanum_fx.items_mob import items, snaryajenie,bag
+from arcanum_fx.proverka import proverka
 def sozdanie_char():
     print('------------------')
     print('Выберите расу')
@@ -18,7 +19,7 @@ def sozdanie_char():
 def sozdaine_char2():
     while True:  
         sozdanie_char()
-        x = int(input('Введите расу. Для подробного описания, введите цифру дважды: '))
+        x = proverka('Введите расу. Для подробного описания, введите цифру дважды: ',1,88)
         os.system('cls' if os.name == 'nt' else 'clear')
         if x == 11:
             human() 
@@ -93,7 +94,7 @@ def sozdaine_char2():
     print('1. Меч(1-4)')
     print('2. Кремневый пистолет(2-3)')
     print('3. Лук(0-6)\n')        
-    nach_snaryajenie = int(input('Выберите начальное снаряжение: '))
+    nach_snaryajenie = proverka('Выберите начальное снаряжение: ',1,3)
     os.system('cls' if os.name == 'nt' else 'clear')
     if nach_snaryajenie == 1:
         #snaryajenie['Руки'].append({'Старый меч':[1,4]})

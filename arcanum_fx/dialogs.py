@@ -1,11 +1,12 @@
 from arcanum_fx.picture_draw import * 
+from arcanum_fx.proverka import proverka
 def dialog_virgil(s):
     s[0] = ('Не может быть, Ваше появление — «Знак свыше», вы Избранный ')
     virdgil(s)
     print('1. Конечно! я же выжил после такого крушения, называй меня Мой Господин!')
     print('2. Наверное, мне просто повезло.')
     print('3. Отвали')
-    x = int(input(''))
+    x = proverka('Выберите ответ: ',1,3)
     os.system('cls' if os.name == 'nt' else 'clear')
     if x == 1:
         s[0] = 'Да... Скромности не занимать. Но в любом случае, предания говоярят,'
@@ -14,7 +15,7 @@ def dialog_virgil(s):
         print('1. Отлично, после такого, мне потребуется личный раб')
         print('2. Пойдем')
         print('3. Отвали')
-        x = int(input(''))
+        x = proverka('Выберите ответ: ',1,3)
         os.system('cls' if os.name == 'nt' else 'clear')
         if x == 1:
             s[0] = '*Мыслит про себя* "Мда... Почему предания не говорили, '
@@ -35,7 +36,7 @@ def dialog_virgil(s):
         virdgil(s)
         print('1. Отлично, спутник мне не помешает')
         print('2. Отвали')
-        x = int(input(''))
+        x = proverka('Выберите ответ: ',1,2)
         os.system('cls' if os.name == 'nt' else 'clear')
         if x == 1:
             s[0] = 'Тогда нам нужно идти в деревню - Туманные холмы '

@@ -4,7 +4,9 @@ from arcanum_fx.items_mob import *
 from arcanum_fx.fight import *
 from arcanum_fx.menu import menu
 from arcanum_fx.char import info_char,jornal
-def dungeon(conteiners,items2,s,n,m):  
+from arcanum_fx.proverka import proverka
+from arcanum_fx.arcanum_save import save,load
+def dungeon(conteiners,items2,s,n,m,name,bag):  
     rand_cont = random.choice(conteiners)
     rand_enem = random.choice(list(enemy.keys())) #если что заменить list(enemy.keys()) на enemy str
     rand_items = random.choice(list(items.items()))
@@ -36,7 +38,7 @@ def dungeon(conteiners,items2,s,n,m):
                 print(f'\nВы заходите, и сзади обрушивается проход, назад дороги нет')           
             p = [rand_cont,rand_enem,'Идти дальше','Осмотреться','Воспользоваться свитком вовращения']
             m = True
-            return dungeon(conteiners,items,p,n-1,m)
+            return dungeon(conteiners,items,p,n-1,m,name,bag)
         if x == 4:
             if s[3][len(s[3])-11:] != '(Осмотрено)'  :              
                 print(f'\nВы видите {random.choice(conteiners)}. ')
@@ -75,7 +77,7 @@ def dungeon(conteiners,items2,s,n,m):
                         input('Enter для продолжения: ')
                     else: 
                         os.system('cls' if os.name == 'nt' else 'clear')
-                        y = int(input(f'Хотите взять в руки {bag[x-1]}?\n\n1. Да  \n2. Нет\n'))
+                        y = proverka(f'Хотите взять в руки {bag[x-1]}?\n\n1. Да  \n2. Нет\n',1,2)
                         os.system('cls' if os.name == 'nt' else 'clear')
                         if y == 1:
                             print(f'Вы кладете в сумку {snaryajenie["Руки"]}\n')
@@ -90,13 +92,22 @@ def dungeon(conteiners,items2,s,n,m):
             os.system('cls' if os.name == 'nt' else 'clear')
             x = 0
         if x == 7:
-            info_char(char,snaryajenie)
+            info_char(char,snaryajenie,name)
             os.system('cls' if os.name == 'nt' else 'clear')
         if x == 8:
             jornal(bag)
             os.system('cls' if os.name == 'nt' else 'clear')
         if x == 9:
-            menu()
+            y = menu()
+            if y == 1:
+                save(name,char,snaryajenie,bag)
+                print('Ваша игра сохранена\n')
+                input('Enter для продолжения: ')
+            if y == 2:
+                load = load()
+                bag = load[3]
+                print('Вы загрузили игру\n')
+                input('Enter для продолжения: ')
             os.system('cls' if os.name == 'nt' else 'clear')
         
 
@@ -112,6 +123,6 @@ def oglyadivaine(s):
     print('8. Журнал(В разработке) ')
     print('------------------------')
     print('9. Меню')
-    x = int(input('\nКуда вы решите подойти: '))
+    x = proverka('\nКуда вы решите подойти: ',1,9)
     print('\n\n\n\n\n\n\n||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||')
     return x

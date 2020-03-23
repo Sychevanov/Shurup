@@ -13,7 +13,7 @@ def vibor_atack(od,char,health_char,full_hp):
     print(f'3. Попытаться договориться             **************************************************')
     print(f'4. Попросить Вирджила вас вылечить   **            Здоровье врага: {full_hp}                **')
     print(f'5. Сбежать                           **************************************************') 
-    x = int(input('Введите число: '))   
+    x = proverka('Введите число: ',1,5)  
     os.system('cls' if os.name == 'nt' else 'clear')
     return x
 def miss(shance):
@@ -50,7 +50,7 @@ def fight(char,enemy,s,mana_virgil):
             if x == 1:
                 od = od - 1
                 print('\nВы атакуете')  
-                atack = random.randint(list(snaryajenie['Руки'][0].values())[0][0],list(snaryajenie['Руки'][0].values())[0][1])+char['Сила']+char['Ловкость']
+                atack = random.randint(list(snaryajenie['Руки'].values())[0][0],list(snaryajenie['Руки'].values())[0][1])+char['Сила']+char['Ловкость']
                 if miss(50):  
                     health_enemy = health_enemy - atack
                     #health_enemy = health_enemy - atack(snaryajenie,char) вот здесь почему-о не работает функция атаки

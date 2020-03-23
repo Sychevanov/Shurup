@@ -1,4 +1,5 @@
 from arcanum_fx.items_mob import snaryajenie,bag
+
 char = {'Здоровье': 100,
             'Сила': 1,
         'Ловкость': 1,
@@ -6,7 +7,8 @@ char = {'Здоровье': 100,
       'Технологии': 1,
            'Магия': 1,
                      }
-def info_char(char,snaryajenie):
+def info_char(char,snaryajenie,name):
+    print(f'Имя персонажа {name}')
     for key in char:
         print(key,' - ', char[key])
     #перебрать снарежние и вывести что есть чего нет, моеэт быть генераторами и  ввообще синхронно

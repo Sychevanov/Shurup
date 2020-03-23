@@ -9,14 +9,15 @@ from arcanum_fx.dialogs import dialog_virgil
 from arcanum_fx.values import mana_virgil
 from arcanum_fx.fight import atack,fight,vibor_atack,miss
 from arcanum_fx.dungeon import dungeon,oglyadivaine
+from arcanum_fx.proverka import proverka
 s = ['','','','']
 os.system('cls' if os.name == 'nt' else 'clear')
 zastavka()
 print('1. Новая игра')
 print('2. Загрузить игру')
 print('3. Выход')
-x = int(input('Введите число: '))
-os.system('cls' if os.name == 'nt' else 'clear')      #, и кореекстность ввода везде,  систему опыта, сохранение и загрузку, меню
+x = proverka('Введите число: ',1,3)
+os.system('cls' if os.name == 'nt' else 'clear')      # систему опыта, сохранение и загрузку, меню
 if x == 1: 
     name = sozdaine_char2()
     dirijable()
@@ -33,7 +34,7 @@ if x == 1:
     input('\nНажмите любую клавишу для продолжения: ')
     os.system('cls' if os.name == 'nt' else 'clear')
     s = ['Мертвого человека','Волков','Пещеру','Осмотреться','Идти с Вирджилом']
-    if dungeon(conteiners,items2,s,2,False):
+    if dungeon(conteiners,items2,s,2,False,name,bag):
         print('\n\nПроходя дальше вы видите духа, парящим над бездыханным телом. Подходя ближе, вы ощущаете себя дурно\nно из-за любопытсва, начинаете с ним диалог')
     print('\n\nПроходя мимо разрушенного дирижабля, на теле одного из пассажиров, мы замечаете поломанный фотоаппарат, решив, что этот странный механизм мертовому все равно не нужен, положили к себе в сумку.')
     rand_items = {'Разбитый фотоаппарат':[20]}
