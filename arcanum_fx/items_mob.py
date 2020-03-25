@@ -73,7 +73,7 @@ def type_predmet(item):
       return 'Метательное'
       
 
-def items_in_bag(rand_items):
+def items_in_bag(rand_items,bag):
   bag.append(rand_items)
 
 def sortirovka(bag):

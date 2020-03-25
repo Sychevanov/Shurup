@@ -2,9 +2,8 @@ import random
 import os
 import time
 from arcanum_fx.values import mana_virgil
-from arcanum_fx.items_mob import *
-from arcanum_fx.char import char
-from arcanum_fx.items_mob import bag_osmotr,bag
+from arcanum_fx.items_mob import items,enemy,conteiners,type_predmet,bag_osmotr,items_in_bag,sortirovka
+from arcanum_fx.proverka import proverka
 def vibor_atack(od,char,health_char,full_hp):
     print(f'\nУ вас {od} ОД, что вы будете делать?')
     print('\n||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||=||')    
@@ -21,7 +20,7 @@ def miss(shance):
         return True
 def atack(snaryajenie,char): # вот эта функция не работает
     return random.randint(snaryajenie['Руки'][0][0],snaryajenie['Руки'][0][1])+char['Сила']+char['Ловкость']
-def fight(char,enemy,s,mana_virgil):
+def fight(char,enemy,s,mana_virgil,bag,snaryajenie):
     if miss(50):
         od = 1
     else:
@@ -70,7 +69,6 @@ def fight(char,enemy,s,mana_virgil):
                         if x != len(bag)+1:   
                             if len(list(bag[x-1].values())[0]) != 3:  
                                 print(f'\nВы можете метнуть {list(bag[x-1].keys())[0]}, но в этом не будет никакого смысла, только если разозлить')  
-                                #i = i - 1
                                 # и сюда добавить хотите ли вы метнуть?    
                             if len(list(bag[x-1].values())[0]) == 3:          
                                 od = od - 1

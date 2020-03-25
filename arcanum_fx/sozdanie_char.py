@@ -1,7 +1,7 @@
 import os
 from arcanum_fx.vibor_char import human,elf,dwarf,gnome,hobbit,poluelf,poluorc,poluogre
 from arcanum_fx.char import char
-from arcanum_fx.items_mob import items, snaryajenie,bag
+from arcanum_fx.items_mob import items, snaryajenie
 from arcanum_fx.proverka import proverka
 def sozdanie_char():
     print('------------------')
@@ -97,12 +97,9 @@ def sozdaine_char2():
     nach_snaryajenie = proverka('Выберите начальное снаряжение: ',1,3)
     os.system('cls' if os.name == 'nt' else 'clear')
     if nach_snaryajenie == 1:
-        #snaryajenie['Руки'].append({'Старый меч':[1,4]})
         snaryajenie['Руки'] = {'Старый меч':[1,4]}
     if nach_snaryajenie == 2:
-        #snaryajenie['Руки'].append({'Старый кремневый пистолет':[2,3]})
         snaryajenie['Руки'] = {'Старый кремневый пистолет':[2,3]}
     if nach_snaryajenie == 3:
-        #snaryajenie['Руки'].append({'Старый лук':[0,6]})   
         snaryajenie['Руки'] = {'Старый лук':[0,6]}
     return name

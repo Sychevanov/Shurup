@@ -1,5 +1,9 @@
 import struct
+import datetime
 def save(name,char,snaryajenie,bag):
+    now = datetime.datetime.now()
+    time = str(now.strftime("%d-%m-%Y %H;%M"))
+    save = 'arcanum_fx/saves/' + name + ' ' + time + '.'
     def write_val(key_str):
         if snaryajenie[key_str] != {}:   
             binary_data = struct.pack ('B',1)
@@ -16,7 +20,7 @@ def save(name,char,snaryajenie,bag):
             binary_data = struct.pack ('B',0)
             bytes_file.write(binary_data)            
     k = len(bag)
-    with open ('arcanum_save.','wb') as bytes_file:
+    with open (save,'wb') as bytes_file:
         name_encode = name.encode("utf-8")
         len_name_encode = len(name_encode)
         binary_data = struct.pack (f'B{len_name_encode}s',len_name_encode,name_encode)
@@ -58,7 +62,24 @@ def save(name,char,snaryajenie,bag):
             len_key_encode = len(key_encode)
             binary_data = struct.pack (f'B{len_key_encode}sBBB',len_key_encode,key_encode,val_0,val_1,val_2)
             bytes_file.write(binary_data)
+    with open ('arcanum_fx/saves/saves_info.txt','a') as y:
+        y.write(name + ' ' + time +'\n')
+def saves_info_read():
+    saves = []
+    with open ('arcanum_fx/saves/saves_info.txt','r') as y:
+        while True:
+            s = y.readline()
+            if not s:
+                break
+            s = s.split('\n')
+            saves.append(s[0])   
+    for i in range(0,len(saves)):
+        print(i+1,saves[i])
+    x = int(input('Выберете сохранеие: '))
+    save_load = 'arcanum_fx/saves/' + saves[x-1]
+    return save_load
 def load():
+    save_load = saves_info_read()
     def read_val():
         binary_data = bytes_file.read(1)
         chek, = struct.unpack('B',binary_data)
@@ -74,7 +95,7 @@ def load():
     snaryajenie = {}
     char = {}
     bag = []
-    with open ('arcanum_save.','rb') as bytes_file:
+    with open (save_load,'rb') as bytes_file:
         binary_data = bytes_file.read(1)
         len_name_encode, = struct.unpack('B',binary_data)
         binary_data = bytes_file.read(len_name_encode)
