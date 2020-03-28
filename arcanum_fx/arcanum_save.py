@@ -1,6 +1,7 @@
 import struct
 import datetime
-def save(name,char,snaryajenie,bag):
+import os
+def save(name,char,snaryajenie,bag,s):
     now = datetime.datetime.now()
     time = str(now.strftime("%d-%m-%Y %H;%M"))
     save = 'arcanum_fx/saves/' + name + ' ' + time + '.'
@@ -62,6 +63,12 @@ def save(name,char,snaryajenie,bag):
             len_key_encode = len(key_encode)
             binary_data = struct.pack (f'B{len_key_encode}sBBB',len_key_encode,key_encode,val_0,val_1,val_2)
             bytes_file.write(binary_data)
+        for i in range(5):
+            s_encode = s[i].encode("utf-8")
+            len_s_encode = len(s_encode)
+            binary_data = struct.pack (f'B{len_s_encode}s',len_s_encode,s_encode)
+            bytes_file.write(binary_data)
+
     with open ('arcanum_fx/saves/saves_info.txt','a') as y:
         y.write(name + ' ' + time +'\n')
 def saves_info_read():
@@ -77,6 +84,7 @@ def saves_info_read():
         print(i+1,saves[i])
     x = int(input('Выберете сохранеие: '))
     save_load = 'arcanum_fx/saves/' + saves[x-1]
+    os.system('cls' if os.name == 'nt' else 'clear')
     return save_load
 def load():
     save_load = saves_info_read()
@@ -95,6 +103,7 @@ def load():
     snaryajenie = {}
     char = {}
     bag = []
+    s = []
     with open (save_load,'rb') as bytes_file:
         binary_data = bytes_file.read(1)
         len_name_encode, = struct.unpack('B',binary_data)
@@ -134,6 +143,14 @@ def load():
             else:
                 item = {dict_[0].decode("utf-8"): [dict_[1]]}
                 bag.append(item) 
-        return name,char,snaryajenie,bag
+        for i in range(5):      
+            binary_data = bytes_file.read(1)
+            len_s_encode, = struct.unpack('B',binary_data)
+            binary_data = bytes_file.read(len_s_encode)
+            s_encode = struct.unpack(f'{len_s_encode}s',binary_data)
+            s_decode  = s_encode[0].decode("utf-8")
+            s.append(s_decode)
+        
+        return name,char,snaryajenie,bag,s
 
     

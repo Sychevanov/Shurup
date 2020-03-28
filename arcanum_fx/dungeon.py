@@ -101,7 +101,7 @@ def dungeon(conteiners,items2,s,n,m,name,char,snaryajenie,bag):
                     print('Сохраниться в пещере нельзя')
                     input('Enter для продолжения: ')
                 else:
-                    save(name,char,snaryajenie,bag)
+                    save(name,char,snaryajenie,bag,s)
                     print('Ваша игра сохранена\n')
                     input('Enter для продолжения: ')
             if y == 3:
