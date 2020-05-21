@@ -26,18 +26,13 @@ while True:
         name = sozdaine_char2()
         dirijable()
         dialog_virgil(s)
-        rand_items = {'Старый меч':[1,4]}
-        items_in_bag(rand_items,bag)
-        rand_items = {'Свиток возвращения':[10]}
-        items_in_bag(rand_items,bag)
         print('\nПосле разговора с Вирджилом, Вы решили осмотреться.\nПервым делом подошли к мертвому гному и нашли у него паспорт на имя Престона Рэдклиффа, посчитав, что вам это нужно, забрали его себе')
-        rand_items = {'Метательный нож':[1,4,90]}
-        items_in_bag(rand_items,bag)
         rand_items = {'Паспорт на имя Престона Редклифа':[10]}
         items_in_bag(rand_items,bag)
         input('\nНажмите любую клавишу для продолжения: ')
         os.system('cls' if os.name == 'nt' else 'clear')
         s = ['Мертвого человека','Волков','Пещеру','Осмотреться','Идти с Вирджилом']
+        
     if x == 2: #нелогичная система загрузки, передлывать пока не буду 
         load = load()
         name = load[0]
