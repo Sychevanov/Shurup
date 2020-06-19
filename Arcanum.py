@@ -20,8 +20,7 @@ print('3. Выход')
 x = proverka('Введите число: ',1,3)
 os.system('cls' if os.name == 'nt' else 'clear')    
 while True:
-    if x == 3:
-        break
+    
     if x == 1: 
         name = sozdaine_char2()
         dirijable()
@@ -32,7 +31,7 @@ while True:
         input('\nНажмите любую клавишу для продолжения: ')
         os.system('cls' if os.name == 'nt' else 'clear')
         s = ['Мертвого человека','Волков','Пещеру','Осмотреться','Идти с Вирджилом']
-        
+
     if x == 2: #нелогичная система загрузки, передлывать пока не буду 
         load = load()
         name = load[0]
@@ -43,6 +42,9 @@ while True:
         print('Вы загрузили игру\n')  
         input('\nНажмите любую клавишу для продолжения: ')
         os.system('cls' if os.name == 'nt' else 'clear')
+
+    if x == 3:
+        break
     
     final_dungeon = dungeon(conteiners,items2,s,2,False,name,char,snaryajenie,bag)
     if final_dungeon[0]:
