@@ -27,7 +27,7 @@ def manORwoman():
     student_mass = []
     girl = Woman()
     for i in range(0,21):
-        x = random.randint(0,2)
+        x = random.randint(0,1)
         if x == 1:
             student_mass.append(boy)
         else:
