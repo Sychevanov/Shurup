@@ -7,8 +7,10 @@ class Currencies(metaclass=ABCMeta):
     @abstractmethod
     def transfer(self):
         pass
-    def sum(self,curr):
-        return sum(cur)
+
+    @abstractmethod
+    def sum(self,sum):
+        pass
 
 class Rub(Currencies):
     
@@ -23,6 +25,10 @@ class Rub(Currencies):
     def transfer(self):
         return self.__curr / 80
 
+    def sum(self,sum):
+        return sum * 80
+
+
 
 class Usd(Currencies):
 
@@ -36,6 +42,9 @@ class Usd(Currencies):
     
     def transfer(self):
         return self.__curr * 1
+    
+    def sum(self,sum):
+        return sum 
 
 class Eur(Currencies):
 
@@ -50,14 +59,8 @@ class Eur(Currencies):
     def transfer(self):
         return self.__curr * 1.12
 
-def transfer_usd (*args): #добавить в каждфый класс метод чтобы туда передавался параметр сумма в юсд и возвращает сумму умножениию на валюту и добавить статические поля сколько стоит каждая валюта в долларах
-    return sum(args)
-
-def transfer_rub(summ_usd):
-    return summ_usd*80
-
-def transfer_eur(summ_usd):
-    return summ_usd*0.89
+    def sum(self,sum):
+            return sum * 0.89
 
 def tran(method):
     return method.transfer()
@@ -74,5 +77,15 @@ x = int(input('Введите колличество Еувро: '))
 eur = Eur(x)
 cur.append(eur)
 y = input('В какую валюту хотите перевести свои деньги?: В рубли, доллары, евро?: ')
-print(cur)
-print(sum(cur.trnsfer()))
+summ_usd = sum(list(map(tran,cur)))
+
+
+if y == 'рубли':
+    print(f'{rub.sum(summ_usd)} столько рублей' )
+elif y=='доллары':
+    print(f'{summ_usd} столько долларов' )
+else:
+    print(f'{eur.sum(summ_usd)} столько евро' )
+
+
+
