@@ -7,6 +7,8 @@ class Currencies(metaclass=ABCMeta):
     @abstractmethod
     def transfer(self):
         pass
+    def sum(self,curr):
+        return sum(cur)
 
 class Rub(Currencies):
     
@@ -61,30 +63,16 @@ def tran(method):
     return method.transfer()
 
 
-
+cur = []
 x = int(input('Введите колличество РУблей: '))
 rub = Rub(x)
+cur.append(rub)
 x = int(input('Введите колличество Долларов: '))
 usd = Usd(x)
+cur.append(usd)
 x = int(input('Введите колличество Еувро: '))
 eur = Eur(x)
+cur.append(eur)
 y = input('В какую валюту хотите перевести свои деньги?: В рубли, доллары, евро?: ')
-summ_usd = transfer_usd(tran(rub),tran(usd),tran(eur))
-
-
-if y == 'рубли':
-    print(f'{transfer_rub(summ_usd)} столько рублей' )
-elif y=='доллары':
-    print(f'{summ_usd} столько долларов' )
-else:
-    print(f'{transfer_eur(summ_usd)} столько евро' )
-
-#print(rub.get_curr)
-#print(summ_usd)
-#print(transfer_eur(summ_usd))
-#print(transfer_rub(summ_usd))
-
-#print(rub.transfer())
-#print(usd.transfer())
-#print(eur.transfer())
-
+print(cur)
+print(sum(cur.trnsfer()))

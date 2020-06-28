@@ -87,12 +87,5 @@ elif y=='доллары':
 else:
     print(f'{eur.sum(summ_usd)} столько евро' )
 
-#print(rub.get_curr)
-#print(summ_usd)
-#print(transfer_eur(summ_usd))
-#print(transfer_rub(summ_usd))
 
-#print(rub.transfer())
-#print(usd.transfer())
-#print(eur.transfer())
 
