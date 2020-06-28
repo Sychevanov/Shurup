@@ -9,11 +9,8 @@ class Currencies(metaclass=ABCMeta):
         pass
 
     @abstractmethod
-    def sum(self,seum):
+    def sum(self,sum):
         pass
-    
-    def sum_usd(self,curr): #можно ли в абстрактном классе оставить один обычный метод?
-        return sum(curr)
 
 class Rub(Currencies):
     
@@ -65,21 +62,22 @@ class Eur(Currencies):
     def sum(self,sum):
             return sum * 0.89
 
+def transfer_usd (*args): 
+    return sum(args)
 
-curr = []
+def tran(method):
+    return method.transfer()
+
+
 
 x = int(input('Введите колличество РУблей: '))
 rub = Rub(x)
-curr.append(rub.transfer())
 x = int(input('Введите колличество Долларов: '))
 usd = Usd(x)
-curr.append(usd.transfer())
 x = int(input('Введите колличество Еувро: '))
 eur = Eur(x)
-curr.append(eur.transfer())
 y = input('В какую валюту хотите перевести свои деньги?: В рубли, доллары, евро?: ')
-
-summ_usd = usd.sum_usd(curr)
+summ_usd = transfer_usd(tran(rub),tran(usd),tran(eur))
 
 
 if y == 'рубли':
