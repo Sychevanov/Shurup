@@ -16,7 +16,7 @@ class Currencies(metaclass=ABCMeta):
     @abstractmethod
     def get_wallet(self):
         pass
-    
+ 
  
    
  
@@ -39,7 +39,7 @@ class Rub(Currencies):
         return self.__curr / Rub.course
    
     def add(self,curr):
-        self.wallet = self.wallet + curr.transfer() 
+        self.wallet = self.wallet + curr.curr / curr.course
  
     def get_wallet(self):
         return self.wallet * 80
@@ -63,7 +63,8 @@ class Usd(Currencies):
         return self.__curr * Usd.course
    
     def add(self,curr):
-        self.wallet = self.wallet + curr.transfer()
+        self.wallet = self.wallet + curr.curr * curr.course
+ 
  
     def get_wallet(self):
         return self.wallet
@@ -87,7 +88,8 @@ class Eur(Currencies):
         return self.__curr * Eur.course
    
     def add(self,curr):
-        self.wallet = self.wallet + curr.transfer()
+        self.wallet = self.wallet + curr.curr * curr.course
+ 
 
  
     def get_wallet(self):

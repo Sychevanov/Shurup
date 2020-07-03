@@ -2,7 +2,8 @@ from abc import ABCMeta, abstractmethod
 
 class Currencies(metaclass=ABCMeta):
     def __init__(self,curr):
-        self.set_curr = curr
+
+        self.curr = curr
 
     @abstractmethod
     def transfer(self):
@@ -11,20 +12,22 @@ class Currencies(metaclass=ABCMeta):
     @abstractmethod
     def sum(self,seum):
         pass
-    
+   
     def sum_usd(self,curr): #можно ли в абстрактном классе оставить один обычный метод?
         return sum(curr)
 
+    def summm(self):
+        pass
+
 class Rub(Currencies):
-    
     @property
-    def get_curr(self):
+    def curr(self):
         return self.__curr
 
-    @get_curr.setter
-    def set_curr(self,curr):
+    @curr.setter
+    def curr(self,curr):
         self.__curr = curr
-
+    
     def transfer(self):
         return self.__curr / 80
 
@@ -34,15 +37,13 @@ class Rub(Currencies):
 
 
 class Usd(Currencies):
-
     @property
-    def get_curr(self):
+    def curr(self):
         return self.__curr
-
-    @get_curr.setter
-    def set_curr(self,curr):
+    @curr.setter
+    def curr(self,curr):
         self.__curr = curr
-    
+
     def transfer(self):
         return self.__curr * 1
     
@@ -50,13 +51,11 @@ class Usd(Currencies):
         return sum 
 
 class Eur(Currencies):
-
     @property
-    def get_curr(self):
+    def curr(self):
         return self.__curr
-
-    @get_curr.setter
-    def set_curr(self,curr):
+    @curr.setter
+    def curr(self,curr):
         self.__curr = curr
     
     def transfer(self):
@@ -66,7 +65,8 @@ class Eur(Currencies):
             return sum * 0.89
 
 
-curr = []
+
+curr = [] 
 
 x = int(input('Введите колличество РУблей: '))
 rub = Rub(x)
@@ -89,4 +89,4 @@ elif y=='доллары':
 else:
     print(f'{eur.sum(summ_usd)} столько евро' )
 
-
+#сначала выбрать в какую валюту перевести а потом в сумму добавляется другие валюты

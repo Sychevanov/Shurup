@@ -16,7 +16,7 @@ class Currencies(metaclass=ABCMeta):
     @abstractmethod
     def get_wallet(self):
         pass
-    
+ 
  
    
  

@@ -77,8 +77,10 @@ x = int(input('Введите колличество Еувро: '))
 eur = Eur(x)
 cur.append(eur)
 y = input('В какую валюту хотите перевести свои деньги?: В рубли, доллары, евро?: ')
-summ_usd = sum(list(map(tran,cur)))
 
+#summ_usd = sum(list(map(tran,cur))) или так
+
+summ_usd = sum([x.transfer() for x in cur ]) # если так, то тогда не нужна функция tran
 
 if y == 'рубли':
     print(f'{rub.sum(summ_usd)} столько рублей' )
