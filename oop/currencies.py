@@ -18,9 +18,6 @@ class Currencies(metaclass=ABCMeta):
         pass
     
  
-   
- 
- 
  
 class Rub(Currencies):
  
@@ -103,7 +100,7 @@ usd = Usd(x)
  
 x = int(input('Введите колличество Еувро: '))
 eur = Eur(x)
-
+print(rub.curr)
 x = int(input('Выберите в какой валюте будут храниться деньги: 1. Рубли, 2. Доллары, 3. Евро'))
 if x == 1:
     rub.add(rub)

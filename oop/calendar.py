@@ -13,15 +13,7 @@ def recovering():
         print(e)
 
 
-def eror_date(month): #Это так для првоерки
-    while True:
-        try:
-            if month >12 and month <=0:
-                print('в году не может быть меньше или больше 12 меясцев ')
-        except:
-            print('Введите цифры а не буквы')
-        else:
-            self.__month = month
+
 
 
 class Calendar(Time):
