@@ -1,5 +1,5 @@
 import random
-from arcanum_fx.proverka import proverka 
+from proverka import proverka 
 items =            {'Старый меч': [1,4],
     'Старый кременевый пистолет': [2,3],
                     'Старый лук': [0,6],

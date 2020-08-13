@@ -1,8 +1,5 @@
 from abc import ABCMeta, abstractmethod
 
-class InvalidTimeException(Exception):
-    pass
-
 class Menu_item(metaclass=ABCMeta):
     def __init__(self,title):
         self.__title = title
