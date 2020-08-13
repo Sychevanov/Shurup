@@ -13,7 +13,7 @@ class Menu_item(metaclass=ABCMeta):
         return self.__title
 
 class Menu(Menu_item):
-    def __init__(self,title = '',flag = False):    
+    def __init__(self,title = '',flag = True):    
         super().__init__(title)  
         self.__list_menu_item = []
         self.__flag = flag
@@ -48,7 +48,7 @@ class Menu(Menu_item):
         return item
 
     def addSubMenu(self,title):
-        submenu = Menu(title)
+        submenu = Menu(title,False)
         self.__list_menu_item.append(submenu)
         return submenu
 
@@ -86,7 +86,7 @@ def foo():
 #student_menu.add(Menu('Students'))
 #student_menu.add(Menu('Students2'))
 #main_menu.run()
-main_menu = Menu('',True)
+main_menu = Menu()
 
 file_menu = main_menu.addSubMenu('File')
 file_menu.addItems('Create', foo)
