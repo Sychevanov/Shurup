@@ -5,7 +5,7 @@ class Menu_item(metaclass=ABCMeta):
         self.__title = title
 
     @abstractmethod
-    def run(self):
+    def run(self): #execute
         pass
 
     
@@ -21,7 +21,7 @@ class Menu(Menu_item):
     def run(self):
         while True:
 
-            if self.__flag == True:
+            if self.__flag:
                 exitt = 'Exit' 
             else:
                 exitt = 'Return'
