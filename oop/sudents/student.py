@@ -8,12 +8,25 @@ class student():
 
 
     def printLong(self): #доделаю
-        pass
+        print(f'Фамилия:{self.last_name}\n')
+        print(f'Имя:{self.first_name}\n')
+        print(f'Отчество:{self.middle_name}\n')
+        print(f'Группа:{self.group}\n')
+        print('Оценки:')
+        for i in self.marks:
+            print('   ',i,':',self.marks[i])
+
+        
+        
+        
 
     def printShort(self):
-        print(self.first_name)
-        print(self.last_name)
-        print(self.marks)
+        print(f'Фамилия:{self.last_name}\n')
+        print(f'Имя:{self.first_name}\n')
+        print(f'Отчество:{self.middle_name}\n')
+        print(f'Группа:{self.group}\n')
 
     def printSubjects(self):#тоже
-        pass
+        print('Оценки:')
+        for i in self.marks:
+            print('   ',i,':',self.marks[i])
