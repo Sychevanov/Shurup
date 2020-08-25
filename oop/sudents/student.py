@@ -7,7 +7,7 @@ class student():
         self.marks = marks
 
 
-    def printLong(self):
+    def printLong(self): #доделаю
         pass
 
     def printShort(self):
@@ -15,5 +15,5 @@ class student():
         print(self.last_name)
         print(self.marks)
 
-    def printSubjects(self):
+    def printSubjects(self):#тоже
         pass
