@@ -1,5 +1,5 @@
-class student():
-    def __init__(self, first_name, middle_name, last_name, group, marks):
+class Student():
+    def __init__(self, last_name, first_name, middle_name, group, marks={}):
         self.first_name = first_name
         self.middle_name = middle_name
         self.last_name = last_name
@@ -7,26 +7,22 @@ class student():
         self.marks = marks
 
 
-    def printLong(self): #доделаю
-        print(f'Фамилия:{self.last_name}\n')
-        print(f'Имя:{self.first_name}\n')
-        print(f'Отчество:{self.middle_name}\n')
-        print(f'Группа:{self.group}\n')
+    def printLong(self): 
+        print(f'Фамилия:{self.last_name}')
+        print(f'Имя:{self.first_name}')
+        print(f'Отчество:{self.middle_name}')
+        print(f'Группа:{self.group}')
         print('Оценки:')
-        for i in self.marks:
-            print('   ',i,':',self.marks[i])
-
+        for key, value in self.marks.items():
+            print(f"  {key}: {value}")
         
-        
-        
-
     def printShort(self):
-        print(f'Фамилия:{self.last_name}\n')
-        print(f'Имя:{self.first_name}\n')
-        print(f'Отчество:{self.middle_name}\n')
-        print(f'Группа:{self.group}\n')
+        print(f'Фамилия:{self.last_name}')
+        print(f'Имя:{self.first_name}')
+        print(f'Отчество:{self.middle_name}')
+        print(f'Группа:{self.group}')
 
-    def printSubjects(self):#тоже
+    def printSubjects(self):
         print('Оценки:')
-        for i in self.marks:
-            print('   ',i,':',self.marks[i])
+        for key, value in self.marks.items():
+            print(f"  {key}: {value}")

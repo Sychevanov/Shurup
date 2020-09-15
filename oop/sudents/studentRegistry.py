@@ -1,4 +1,4 @@
-from student import student
+from student import Student
 
 class Singleton(type):
 
@@ -22,7 +22,7 @@ class StudentRegistry(metaclass=Singleton):
         self.__students.append(student)
         
     def removeStudentsNumber(self,number):
-        del self.__students[number]
+        del self.__students[number-1]
 
         
     def removeStudents(self,student):
@@ -36,10 +36,4 @@ class StudentRegistry(metaclass=Singleton):
         return len(self.__students)
 
 
-if __name__ == "__main__":
-    student = student('Ivan','Ivanov','Ivanovich','oop',{'russkiy': 5,'math':4})
-    studentRegistry = StudentRegistry()
-    studentRegistry.addStudents(student)
-    student.printLong()
-    #print(studentRegistry)
-    #studentRegistry.removeStudents('Ivan')
+
