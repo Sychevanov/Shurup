@@ -27,6 +27,9 @@ class Array:
     def insert(self,key,val):
         self.array.insert(key, val)
 
+    def __iter__(self):
+        for x in self.array:
+            yield x
 
 
     def __iadd__(self, right):
@@ -49,4 +52,10 @@ a.remove(1)
 a.insert(0,34)
 a+=20
 a-=20
-print(a)
+#print(a)
+for i in a:
+    print(i)
+
+for x in a:
+   for y in a:
+    print(x,y)
