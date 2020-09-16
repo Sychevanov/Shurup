@@ -1,12 +1,18 @@
-class BriefPrintVisitor():
+from studentVisitor import StudentVisitor
 
-    def startVisit(self): 
-        pass
+class BriefPrintVisitor(StudentVisitor):
+  
+    def start_visit(self):
 
-    
-    def visitStudent(self, number, student): 
-        pass
+        self.__has_students = False
 
-    
-    def finishVisit(self): 
-        pass
+    def visit_student(self, number, student):
+
+        print(f"{number}. ", end="")
+        student.printShort()
+        self.__has_students = True
+
+    def finish_visit(self):
+
+        if not self.__has_students:
+            print("Студентов в базе данных нет")

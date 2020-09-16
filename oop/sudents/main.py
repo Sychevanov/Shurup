@@ -13,7 +13,7 @@ edit_menu = main_menu.addSubMenu('Edit')
 edit_menu.addItems('Return',foo)
 
 
-#лист стюдентс комманд это классы? я думал это функции которые мы будем как параметр в меню, чтобы делали свою работу
+
 main_menu.addItems('Показать студентов',listStudents)
 main_menu.addItems('Показать неуспевающих',showLow)
 main_menu.addItems('Показать отличников',showHight)

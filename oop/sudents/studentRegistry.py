@@ -35,5 +35,14 @@ class StudentRegistry(metaclass=Singleton):
     def getStudentsCount(self):
         return len(self.__students)
 
+    def visit_students(self, visitor):
+
+        visitor.start_visit()
+
+        for i, student in enumerate(self.__students):
+            visitor.visit_student(i, student)
+        
+        visitor.finish_visit()
+
 
 
