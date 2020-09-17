@@ -21,4 +21,4 @@ class HightArchieverVisitor(StudentVisitor):
     def finish_visit(self):
 
         if not self.__has_students:
-            print("Студентов в базе данных нет")
+            print("Отличников в базе данных нет")

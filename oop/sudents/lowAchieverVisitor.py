@@ -18,6 +18,7 @@ class LowArchieverVisitor(StudentVisitor):
         #for mark in list(student.marks.values()):
         #    if mark == 2:
         #        found = True
+        #        break
         #if found:
         #    student.printShort()
         if sum(list(student.marks.values()))/len(list(student.marks.values())) <= 3:
@@ -27,4 +28,4 @@ class LowArchieverVisitor(StudentVisitor):
     def finish_visit(self):
 
         if not self.__has_students:
-            print("Студентов в базе данных нет")
+            print("Неуспевающих в базе данных нет")
