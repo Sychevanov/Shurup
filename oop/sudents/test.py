@@ -44,3 +44,24 @@ def visit_students(self, visitor):]
   for i, student in enumerate(self.__students):
     visitor.visit_student(i, student)
   visitor.finish_visit()
+
+
+
+WidgetFactory widgetFactory = WidgetFactory.getFactory(); // тут определили что за ОС
+Button button = widgetFactory.createButton(); // тут создали кнопку
+abstract class WidgetFactory {
+  public abstract Button createButton();
+  public abstract Label createLabel();
+  ///
+
+  public static WidgetFactory getFactory() {
+    if (runningOnWindows()) {
+      return new WindowsWidgetFactory();
+    }
+    // ...
+  }
+}
+class WindowsWidgetFactory extends WidgetFactory {
+  public Button createButton() { ... }
+  ///
+}

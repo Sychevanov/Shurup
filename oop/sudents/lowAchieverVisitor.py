@@ -1,8 +1,8 @@
 from studentVisitor import StudentVisitor
-from program import Program
 
 
-class LowArchieverVisitor(StudentVisitor):
+
+class LowArchieverVisitor():
     def __init__(self):
 
         self.__low_archievers = []
@@ -13,7 +13,7 @@ class LowArchieverVisitor(StudentVisitor):
 
     def visit_student(self, number, student):
 
-        print(f"{number}. ", end="")
+        print(f"{number+1}. ", end="")
         #found = False
         #for mark in list(student.marks.values()):
         #    if mark == 2:

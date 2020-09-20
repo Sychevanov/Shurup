@@ -1,8 +1,8 @@
 from studentVisitor import StudentVisitor
-from program import Program
 
 
-class HightArchieverVisitor(StudentVisitor):
+
+class HightArchieverVisitor():
     def __init__(self):
 
         self.__hight_archievers = []
@@ -13,7 +13,7 @@ class HightArchieverVisitor(StudentVisitor):
 
     def visit_student(self, number, student):
 
-        print(f"{number}. ", end="")
+        print(f"{number+1}. ", end="")
         if sum(list(student.marks.values()))/len(list(student.marks.values())) == 5:
             student.printShort() 
         self.__has_students = True

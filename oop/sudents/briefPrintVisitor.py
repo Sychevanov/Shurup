@@ -1,6 +1,6 @@
 from studentVisitor import StudentVisitor
 
-class BriefPrintVisitor(StudentVisitor):
+class BriefPrintVisitor():
   
     def start_visit(self):
 
