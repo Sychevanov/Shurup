@@ -8,19 +8,19 @@ class Menu(Menu_item):
         super().__init__(title)  
         self.__list_menu_item = []
         self.__flag = flag
-        self.startup_command = None #запутался поля статическими должны быть или нет?
-        self.before_select_command = None
-        self.tear_down_command = None
+        startup_command = None 
+        before_select_command = None
+        tear_down_command = None
 
     def run(self):
-        if self.startup_command != None:
+        if startup_command != None:
 
-            self.startup_command()
+            startup_command()
 
         while True:
 
-            if self.before_select_command != None:
-                self.before_select_command()
+            if before_select_command != None:
+                before_select_command()
 
             if self.__flag:
                 exitt = 'Exit' 
@@ -40,9 +40,9 @@ class Menu(Menu_item):
 
             self.__list_menu_item[x-1].run()
 
-        if self.tear_down_command != None:
+        if tear_down_command != None:
 
-            self.tear_down_command()
+            tear_down_command()
         
 
     def addItems(self,title,foo):
