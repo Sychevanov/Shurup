@@ -11,7 +11,7 @@ class LowArchieverVisitor():
 
         self.__has_students = False
 
-    def visit_student(self, number, student):
+    def visit_student(self, number, student): #сколько разныъ обьектов столько и визитов дожно быть
 
         print(f"{number+1}. ", end="")
         #found = False

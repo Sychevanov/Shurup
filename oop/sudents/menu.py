@@ -1,14 +1,26 @@
 from menuItem import Menu_item
 from simpleMenuIItem import Simple_menu_item
+from studentRegistry import StudentRegistry
+from editContext import EditContext
 
 class Menu(Menu_item):
     def __init__(self,title = '',flag = True):    
         super().__init__(title)  
         self.__list_menu_item = []
         self.__flag = flag
+        self.startup_command = None #запутался поля статическими должны быть или нет?
+        self.before_select_command = None
+        self.tear_down_command = None
 
     def run(self):
+        if self.startup_command != None:
+
+            self.startup_command()
+
         while True:
+
+            if self.before_select_command != None:
+                self.before_select_command()
 
             if self.__flag:
                 exitt = 'Exit' 
@@ -27,6 +39,10 @@ class Menu(Menu_item):
                 break
 
             self.__list_menu_item[x-1].run()
+
+        if self.tear_down_command != None:
+
+            self.tear_down_command()
         
 
     def addItems(self,title,foo):
@@ -52,6 +68,9 @@ class Menu(Menu_item):
                 print('Введите цифру, а не букву')    
         return x
 
+
+
+#editContext = EditConext()
 #main_menu = Menu('Main_menu',True)
 #student_menu = Menu('Students')
 #main_menu.add(Menu('Main_menu_item_1'))
