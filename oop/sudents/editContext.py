@@ -9,7 +9,7 @@ class Singleton(type):
 
             cls.instances[cls] = super().__call__(*args, **kwargs)
 
-            return cls.instances[cls]
+        return cls.instances[cls]
 
 class EditContext(metaclass=Singleton):
 

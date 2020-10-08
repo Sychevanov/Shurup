@@ -8,7 +8,7 @@ class BriefPrintVisitor():
 
     def visit_student(self, number, student):
 
-        print(f"{number}. ", end="")
+        print(f"{number+1}. ", end="")
         student.printShort()
         self.__has_students = True
 

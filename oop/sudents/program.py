@@ -2,16 +2,13 @@ from studentRegistry import StudentRegistry
 from student import Student
 from lowAchieverVisitor import LowArchieverVisitor
 from hightAchieverVisitor import HightArchieverVisitor
+from briefPrintVisitor import BriefPrintVisitor
 from editContext import EditContext
 class Program():
 
     @staticmethod
     def listStudentsCommand():
-        lenStudents = StudentRegistry().getStudentsCount()
-        for i in range(0,lenStudents):
-            print(i+1,end='. ')
-            StudentRegistry().getStudent(i).printShort() 
-            print('\n')
+        StudentRegistry().visit_students(BriefPrintVisitor())
 
     @staticmethod
     def addStudentCommand():
@@ -23,8 +20,12 @@ class Program():
 
     @staticmethod
     def removeStudentCommand():
-        n = input('Введите номер ученика')
-        StudentRegistry().removeStudentsNumber(n)
+        StudentRegistry().visit_students(BriefPrintVisitor())
+        if StudentRegistry().getStudentsCount() != 0:
+
+            n = int(input('Введите номер ученика'))
+            StudentRegistry().removeStudentsNumber(n) 
+
     
     @staticmethod
     def showHighAchiversCommand():
@@ -52,7 +53,7 @@ class Program():
     @staticmethod
     def ShowSelectedCommand():
 
-        EditContext().student.printShort
+        EditContext().student.printShort()
 
     @staticmethod
     def DeselectStudentCommand():
@@ -81,6 +82,21 @@ class Program():
             print(f"{key}: {value}")
         x = input('Введите предмет, чтобы изменить оценку: ')
         EditContext().student.marks[x] = int(input('Введите оценку: '))
+
+    @staticmethod
+    def AddMarksCommand():
+        subject = input('Введите наименование предмета: ')
+        mark = int(input('Введите оценку'))
+
+        EditContext().student.marks[subject] = mark  
+        print('оценка добавлена') 
+    
+    @staticmethod
+    def DeleteMarksCommand():
+        for key, value in EditContext().student.marks.items():            
+            print(f"{key}: {value}")
+        x = input('Введите предмет, чтобы удалить оценку: ')
+        EditContext().student.marks[x] = ''
 
 
 
