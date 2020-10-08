@@ -1,24 +1,44 @@
 from menu import Menu
 from simpleMenuIItem import Simple_menu_item
-from fx import *
 from menuItem import Menu_item
+from program import Program
+from studentRegistry import StudentRegistry
 
 main_menu = Menu()
 
-file_menu = main_menu.addSubMenu('File')
-file_menu.addItems('Create', foo)
-file_menu.addItems('Open',foo)
+main_menu.addItems('Cписок студентов',Program().listStudentsCommand)
+main_menu.addItems('Добавить студента',Program().addStudentCommand)
 
-edit_menu = main_menu.addSubMenu('Edit')
-edit_menu.addItems('Return',foo)
+edit_menu = main_menu.addSubMenu("Редактировать студента")
+edit_menu.addItems('Изменить Фамилию',Program().EditLastNameCommand)
+edit_menu.addItems('Изменить имя',Program().EditFirstNameCommand)
+edit_menu.addItems('Изменить отчество',Program().EditMidlleNameCommand)
+edit_menu.addItems('Изменить группу',Program().EditGroupNameCommand)
+edit_menu.addItems('Изменить оценку',Program().EditMarksCommand)
+edit_menu.setStartupCommand(Program.SelectStudentCommand)
+edit_menu.setBeforeCommand(Program.ShowSelectedCommand)
+edit_menu.setTearDownCommand(Program.DeselectStudentCommand)
+
+main_menu.addItems('Удалить студента',Program().removeStudentCommand)
+main_menu.addItems('Показать отличников',Program().showHighAchiversCommand)
+main_menu.addItems('Показать неуспевающих',Program().showLowArchiversCommand)
+
+#list_students = main_menu.addSubMenu('File')
+#add_students = main_menu.addSubMenu()
+
+#file_menu.addItems('Create', foo) #адд айтемс для того чтобы делать подменю и второй параметр сразу делает то что нам надо
+#file_menu.addItems('Open',foo)
 
 
 
-main_menu.addItems('Показать студентов',listStudents)
-main_menu.addItems('Показать неуспевающих',showLow)
-main_menu.addItems('Показать отличников',showHight)
-main_menu.addItems('Добавить студента',addStudent)
-main_menu.addItems('удалить студента',deleteStudent)
+
+###
+
+#main_menu.addItems('Показать студентов',listStudents)
+#main_menu.addItems('Показать неуспевающих',showLow)
+#main_menu.addItems('Показать отличников',showHight)
+#main_menu.addItems('Добавить студента',addStudent)
+#main_menu.addItems('удалить студента',deleteStudent)
 
 
 main_menu.run()

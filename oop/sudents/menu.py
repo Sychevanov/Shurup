@@ -8,24 +8,24 @@ class Menu(Menu_item):
         super().__init__(title)  
         self.__list_menu_item = []
         self.__flag = flag
-        startup_command = None 
-        before_select_command = None
-        tear_down_command = None
+        self.startup_command = None 
+        self.before_select_command = None
+        self.tear_down_command = None
 
     def run(self):
-        if startup_command != None:
+        if self.startup_command != None:
 
-            startup_command()
+            self.startup_command()
 
         while True:
 
-            if before_select_command != None:
-                before_select_command()
+            if self.before_select_command != None:
+                self.before_select_command()
 
             if self.__flag:
-                exitt = 'Exit' 
+                exitt = ' Выход\n' 
             else:
-                exitt = 'Return'
+                exitt = 'Назад'
 
             for i in range(len(self.__list_menu_item)):
                 print(i+1,' ',self.__list_menu_item[i].get_title())
@@ -35,15 +35,23 @@ class Menu(Menu_item):
             x = self.proverka()
             
             if x == len(self.__list_menu_item)+1:
-                print('Exit')
+                print(' Выход\n')
                 break
 
             self.__list_menu_item[x-1].run()
 
-        if tear_down_command != None:
+        if self.tear_down_command != None:
 
-            tear_down_command()
-        
+            self.tear_down_command()
+    def setStartupCommand(self,programmCommand):
+        self.startup_command = programmCommand
+
+    def setBeforeCommand(self,programmCommand):
+        self.before_select_command = programmCommand
+
+    def setTearDownCommand(self,programmCommand):
+        self.tear_down_command = programmCommand
+
 
     def addItems(self,title,foo):
         item = Simple_menu_item(title,foo)

@@ -1,14 +1,17 @@
-eat = 0
-alcohol = 0
-allProducts = [{'Продукты': eat}, {'Алкоголь': alcohol},]
-print(len(allProducts))
-print(list(allProducts[0].keys())[0])
-print(allProducts)
+import json
+def save(student):
+    with​ open('student.json', 'w') ​ as​ f: 
+        json.dump(student, f)
 
-for i in range(0,len(allProducts)): 
-    if 'Продукты '!= list(allProducts[i].keys())[0]:
-        print('все норм')
-    else:
-        print('Выберите каттегорию: ')
+def load():
+    with​ open('student.json', 'r') ​ as​ f: 
+        json.load(student, f)
 
-print(allProducts[1])
+with open ('all_op.','wb') as bytes_file:
+        binary_data = struct.pack ('H',k)
+        bytes_file.write(binary_data)
+
+
+student = [45,45,18]
+
+save(student)

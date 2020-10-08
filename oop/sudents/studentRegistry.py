@@ -1,4 +1,5 @@
 from student import Student
+import json
 
 class Singleton(type):
 
@@ -43,6 +44,14 @@ class StudentRegistry(metaclass=Singleton):
             visitor.visit_student(i, student)
         
         visitor.finish_visit()
+
+    def save(self):
+        with open ('students.json','w') as f:
+            json.dump(self.__students, f)
+
+    def load(self):
+        with open ('students.json','r') as f:
+            self.__students = json.load(f)
 
 
 
