@@ -1,6 +1,6 @@
 import struct
-from myprogramm.student_write import write 
-from myprogramm.student_read import read
+#from myprogramm.student_write import write 
+#from myprogramm.student_read import read
 def menu1():
     print('')
     print('1. Список студентов')
@@ -75,7 +75,7 @@ def exit2():
 y = 0
 found = False
 exit = ''
-spisok_student = read()
+#spisok_student = read()
 x = 0
 while True:
     if x == 7:        

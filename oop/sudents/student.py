@@ -15,7 +15,7 @@ class Student():
         print('Оценки:')
         for key, value in self.marks.items():
             print(f"  {key}: {value}")
-        
+     
     def printShort(self):
         print(f'Фамилия:{self.last_name}')
         print(f'Имя:{self.first_name}')

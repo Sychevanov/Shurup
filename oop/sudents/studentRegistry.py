@@ -1,5 +1,6 @@
 from student import Student
 import json
+#from program import Program
 
 class Singleton(type):
 
@@ -46,12 +47,33 @@ class StudentRegistry(metaclass=Singleton):
         visitor.finish_visit()
 
     def save(self):
-        with open ('students.json','w') as f:
-            json.dump(self.__students, f)
+        person = []
+        for i in range(0,StudentRegistry().getStudentsCount()):
+            person.append(StudentRegistry().studetInDict(StudentRegistry().getStudent(i+1)))
+            
+        with open ('person.json','w') as f:
+            json.dump(person, f)
 
     def load(self):
-        with open ('students.json','r') as f:
-            self.__students = json.load(f)
+        with open ('person.json','r') as f:
+            person2 = json.load(f)
+            StudentRegistry().dictInStudent(person2)
+
+    @staticmethod
+    def studetInDict(student):
+        studentDict = []
+        studentDict.append(student.last_name)
+        studentDict.append(student.first_name)
+        studentDict.append(student.middle_name)
+        studentDict.append(student.group)
+        studentDict.append(student.marks)   
+        return studentDict
+    @staticmethod
+    def dictInStudent(studentsInDict):
+        for i in range(0,len(studentsInDict)):
+            student = Student(studentsInDict[i][0],studentsInDict[i][1],studentsInDict[i][2],studentsInDict[i][3],studentsInDict[i][4])
+            StudentRegistry().addStudents(student)
+            
 
 
 

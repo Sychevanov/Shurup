@@ -3,7 +3,7 @@ from simpleMenuIItem import Simple_menu_item
 from menuItem import Menu_item
 from program import Program
 from studentRegistry import StudentRegistry
-
+StudentRegistry().load()
 main_menu = Menu()
 
 main_menu.addItems('Cписок студентов',Program.listStudentsCommand) 
@@ -24,6 +24,7 @@ edit_menu.setTearDownCommand(Program.DeselectStudentCommand)
 main_menu.addItems('Удалить студента',Program.removeStudentCommand)
 main_menu.addItems('Показать отличников',Program.showHighAchiversCommand)
 main_menu.addItems('Показать неуспевающих',Program.showLowArchiversCommand)
+
 
 #list_students = main_menu.addSubMenu('File')
 #add_students = main_menu.addSubMenu()
