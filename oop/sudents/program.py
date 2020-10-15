@@ -23,9 +23,19 @@ class Program():
     def removeStudentCommand():
         StudentRegistry().visit_students(BriefPrintVisitor()) #подтверждение 
         if StudentRegistry().getStudentsCount() != 0:
+            
 
             n = int(input('Введите номер ученика'))
-            StudentRegistry().removeStudentsNumber(n) 
+
+            yORn = input(f'Вы уверены что хотите удалить ученика {n}?')
+        
+            if yORn == 'yes' or 'да':
+
+                StudentRegistry().removeStudentsNumber(n) 
+                print('Вы удалили ученика')
+            
+
+            
 
     
     @staticmethod
@@ -81,10 +91,22 @@ class Program():
 
     @staticmethod
     def EditMarksCommand():
-        for key, value in EditContext().student.marks.items():            
-            print(f"{key}: {value}")
-        x = input('Введите предмет, чтобы изменить оценку: ')
-        EditContext().student.marks[x] = int(input('Введите оценку: ')) #проверку сделать если ли предмет
+        if len(EditContext().student.marks) == 0:
+            print('У ученика нет прдеметов с оценками')
+        else:
+            for key, value in EditContext().student.marks.items():            
+                print(f"{key}: {value}")
+            x = input('Введите предмет, чтобы изменить оценку: ')
+            if Program.chek(x):
+                print('Вы ввели несуществующий предмет или опечатались')
+            else:
+            
+                EditContext().student.marks[x] = int(input('Введите оценку: ')) 
+    @staticmethod
+    def chek(x):
+        for key in EditContext().student.marks.keys():            
+            if x != key:
+                return True    
 
     @staticmethod
     def AddMarksCommand():
@@ -96,15 +118,23 @@ class Program():
     
     @staticmethod
     def DeleteMarksCommand():
-        for key, value in EditContext().student.marks.items():            
-            print(f"{key}: {value}")
-        x = input('Введите предмет, чтобы удалить оценку: ')
-        yORn = input(f'Вы уверены что хотите удалить оценку {x}?')
-        #проверка на коррекность ввода предмета
-        if yORn == 'yes' or 'да':
+        if len(EditContext().student.marks) == 0:
+            print('У ученика нет прдеметов с оценками')
+        else:
 
-            EditContext().student.marks[x] = ''
-            print('Вы удалил оценку')
+            for key, value in EditContext().student.marks.items():            
+                print(f"{key}: {value}")
+            x = input('Введите предмет, чтобы удалить оценку: ')
+            print(Program.chek(x))
+            if Program.chek(x):
+                print('Вы ввели несуществующий предмет или опечатались')
+            else:
+                yORn = input(f'Вы уверены что хотите удалить оценку {x}?')
+            
+                if yORn == 'yes' or 'да':
+
+                    EditContext().student.marks[x] = ''
+                    print('Вы удалили оценку')
 
     @staticmethod
     def studetInDict(student):
