@@ -26,34 +26,8 @@ main_menu.addItems('Показать отличников',Program.showHighAchiv
 main_menu.addItems('Показать неуспевающих',Program.showLowArchiversCommand)
 
 
-#list_students = main_menu.addSubMenu('File')
-#add_students = main_menu.addSubMenu()
-#Добавить оценку
-#Удалить оценку
-#file_menu.addItems('Create', foo) #адд айтемс для того чтобы делать подменю и второй параметр сразу делает то что нам надо
-#file_menu.addItems('Open',foo)
-
-
-
-
-###
-
-#main_menu.addItems('Показать студентов',listStudents)
-#main_menu.addItems('Показать неуспевающих',showLow)
-#main_menu.addItems('Показать отличников',showHight)
-#main_menu.addItems('Добавить студента',addStudent)
-#main_menu.addItems('удалить студента',deleteStudent)
-
 
 main_menu.run()
+StudentRegistry().save()
 
 
-#Создать статические методы класса Program, отвечающие за следующие пункты главного меню:
-#
-#- список студентов
-#- добавить студента
-#- удалить студента
-#- показать отличников
-#- показать неуспевающих#
-#
-#В этих функциях использовать класс StudentRegistry для управления списком студентов. Добавить эти функции в меню как реализацию пунктов SimpleMenuItem.
