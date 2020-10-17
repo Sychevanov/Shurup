@@ -133,23 +133,10 @@ class Program():
             
                 if yORn == 'yes' or 'да':
 
-                    EditContext().student.marks[x] = ''
+                    del EditContext().student.marks[x]
                     print('Вы удалили оценку')
 
-    @staticmethod
-    def studetInDict(student):
-        studentDict = []
-        studentDict.append(student.last_name)
-        studentDict.append(student.first_name)
-        studentDict.append(student.middle_name)
-        studentDict.append(student.group)
-        studentDict.append(student.marks)   
-        return studentDict
-    @staticmethod
-    def dictInStudent(studentsInDict):
-        for i in range(0,len(studentsInDict)):
-            student = Student(studentsInDict[i][0],studentsInDict[i][1],studentsInDict[i][2],studentsInDict[i][3],studentsInDict[i][4])
-            StudentRegistry().addStudents(student)
+
 
     
             
