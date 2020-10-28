@@ -23,7 +23,7 @@ edit_menu.setTearDownCommand(Program.DeselectStudentCommand)
 
 main_menu.addItems('Удалить студента',Program.removeStudentCommand)
 main_menu.addItems('Показать отличников',Program.showHighAchiversCommand)
-main_menu.addItems('Показать неуспевающих',Program.showLowArchiversCommand)
+main_menu.addItems('Показать неуспевающих',Program.showLowArchiversCommand)#ntcn
 
 
 
