@@ -1,2 +1,1 @@
-from myprogramm.b import f
-f()
+print('Hello')
