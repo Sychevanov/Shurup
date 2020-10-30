@@ -1,18 +1,24 @@
-class Product():
-    def __init__(self,name,price):
-        #self.products = []
-        self.name = name
-        self.price = price 
+from Product import Product
+from programm import save
+from ProductCattegory import ProductCattegory
+from AllProductCattegory import AllProductCattegory
+
+p = Product('Хлеьб',45)
+ProductCattegory().add(p)
+
+productDict = []
+productDict.append(p.name)  
+productDict.append(p.priсe)
 
 
-class Products():
-    def __init__(self):
-        self.products = []
+products = {}
+for key in ProductCattegory().products().keys():
+    for p in ProductCattegory().products()[key]:
+        products[key] = []
+        products[key].append(productInDict(p))
 
+    
+with open ('products.json','w') as f:
+    json.dump(products, f)
 
-    def add(self, product):
-        self.products.append(product)
-
-
-
-Products().add(Product('ff',5))
+print(ProductCattegory().products())
