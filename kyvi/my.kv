@@ -1,0 +1,80 @@
+<ItemLabel@Label>:
+    font_size: '25sp'
+    halign: 'left'
+    valign: 'middle'
+    text_size: self.size
+
+<Container>:
+    rows: 3
+
+    text_input: text_input
+    salt: salt
+
+    AnchorLayout:
+        size_hint: 1, 0.15
+
+        TextInput:
+            id: text_input
+            font_size: '45sp'
+            multiline: False
+            input_type: 'number'
+            input_filter: 'int'
+
+    GridLayout:
+        cols: 2
+
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: 0.5,1
+            padding: [30, 0, 30, 20]
+            ItemLabel:
+                
+                text: 'Salt'
+            Button:
+                text: 'GO'
+                font_size: 20
+            Button:
+                text: 'GO'
+                font_size: 20
+            Button:
+                text: 'GO'
+                font_size: 20
+            Button:
+                text: 'GO'
+                font_size: 20
+        
+        BoxLayout:
+            orientation: 'vertical'
+            size_hint: 0.5,1
+            padding: [30, 0, 30, 20]
+            ItemLabel:
+                
+                text: '0'
+
+                id: salt
+            Button:
+                text: 'GO'
+                font_size: 20
+            Button:
+                text: 'GO'
+                font_size: 20
+            Button:
+                text: 'GO'
+                font_size: 20
+            Button:
+                text: 'GO'
+                font_size: 20
+    BoxLayout:
+        size_hint: 0.9, 0.15
+        padding: [30, 0, 30, 20]
+
+        Button:
+            text: 'GO'
+            font_size: 40
+
+            on_release:
+                root.calculate()
+
+
+
+
