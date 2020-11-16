@@ -1,5 +1,3 @@
-<<<<<<< Updated upstream
-<<<<<<< Updated upstream
 import json
 def save(student):
     with​ open('student.json', 'w') ​ as​ f: 
@@ -17,16 +15,8 @@ with open ('all_op.','wb') as bytes_file:
 student = [45,45,18]
 
 save(student)
-=======
-=======
->>>>>>> Stashed changes
 >>> objects = ['blue', 'apple', 'dog']
 >>> categories = ['color', 'fruit', 'pet']
 >>> a_dict = {key: value for key, value in zip(categories, objects)}
 >>> a_dict
-<<<<<<< Updated upstream
 {'color': 'blue', 'fruit': 'apple', 'pet': 'dog'}
->>>>>>> Stashed changes
-=======
-{'color': 'blue', 'fruit': 'apple', 'pet': 'dog'}
->>>>>>> Stashed changes
