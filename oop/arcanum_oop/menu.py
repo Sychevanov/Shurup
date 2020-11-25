@@ -4,35 +4,40 @@ from simpleMenuIItem import Simple_menu_item
 #from editContext import EditContext
 
 class Menu(Menu_item):
-    def __init__(self,title = '',flag = True):    
+    def __init__(self,title = '',flag = True, noBack = True):    
         super().__init__(title)  
         self.__list_menu_item = []
         self.__flag = flag
+        self.__noBack = noBack
         self.startup_command = None  # выполняется до общего цикла
-        #self.before_select_command = None #выполняется во врмя цикла
+        self.noExit_command = None #выполняется во врмя цикла
         #self.tear_down_command = None # dвыполянется после цикла
 
     def run(self):
         if self.startup_command != None:
 
             self.startup_command()
+        
 
         while True:
-
-            #if self.before_select_command != None:
-            #    self.before_select_command()
 
             if self.__flag:
                 exitt = ' Выход\n' 
             else:
                 exitt = 'Назад'
+            
 
             for i in range(len(self.__list_menu_item)):
                 print(i+1,' ',self.__list_menu_item[i].get_title())
 
-            print(len(self.__list_menu_item)+1, '', exitt)
+            if self.__noBack:
+                print(len(self.__list_menu_item)+1, '', exitt)
 
             x = self.proverka()
+
+            if self.noExit_command != None:
+                
+                break
             
             if x == len(self.__list_menu_item)+1:
                 print(' До новых встреч\n')
@@ -40,14 +45,13 @@ class Menu(Menu_item):
 
             self.__list_menu_item[x-1].run()
 
-        #if self.tear_down_command != None:
-
-        #    self.tear_down_command()
+        
     def setStartupCommand(self,programmCommand):
         self.startup_command = programmCommand
 
-    #def setBeforeCommand(self,programmCommand):
-    #    self.before_select_command = programmCommand
+    def setNoExitCommand(self):
+        self.noExit_command = True
+    
 
     #def setTearDownCommand(self,programmCommand):
     #    self.tear_down_command = programmCommand
@@ -58,10 +62,11 @@ class Menu(Menu_item):
         self.__list_menu_item.append(item)
         return item
 
-    def addSubMenu(self,title):
-        submenu = Menu(title,False)
+    def addSubMenu(self,title,noBack = True):
+        submenu = Menu(title,False,noBack)
         self.__list_menu_item.append(submenu)
         return submenu
+
 
     def proverka(self):
         while True:
