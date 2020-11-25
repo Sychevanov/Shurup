@@ -7,7 +7,6 @@ class Menu_item(metaclass=ABCMeta):
     @abstractmethod
     def run(self): #execute
         pass
-
     
     def get_title(self):
         return self.__title

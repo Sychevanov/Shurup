@@ -1,5 +1,11 @@
+from menu import Menu
+from simpleMenuIItem import Simple_menu_item
+from menuItem import Menu_item
+from Char import Char
 def foo():
     print('proverka')
+def createChar():
+    createChar = ['human']
 
 def printChar():
         print('------------------')
@@ -41,3 +47,7 @@ def poluogre():
     print(' Полуогры (Half-Ogres): +4 Сила , +1 броня, -1 Внешность , -4 Интеллект, ') 
     print(' Вот живая иллюстрация поговорки «сила есть, ума не надо». Гора мышц и самый минимум мозгов. Впрочем, играть за такого персонажа очень забавно.')
     print(' Просто почитайте фразы, которые выдает ваш подопечный, — хорошее настроение гарантировано. Однако, если не хотите пропустить некоторые квесты, поднимите своему персонажу интеллект.')
+
+
+
+

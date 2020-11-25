@@ -8,16 +8,16 @@ import os
 from menu import Menu
 from simpleMenuIItem import Simple_menu_item
 from menuItem import Menu_item
-from fx import foo, printChar, human
+from fx import foo, printChar, human, createChar
 from picture_draw import zastavka
 def newGame():
     
-    main_menu = Menu(title='',flag=True,noBack=False)
+    main_menu = Menu(title='',flag=True,noBack=False,forsedExit = False)
     main_menu.setStartupCommand(printChar)
     human_menu = main_menu.addSubMenu('Человек',True)
     human_menu.setStartupCommand(human)
-    human_menu.addItems('Продолжить этой расой',foo)
-
+    human_menu.addItems('Продолжить этой расой',createChar)
+    
     #main_menu.addItems('Человек', foo)
     #main_menu.addItems('Орк', foo)
     human_menu.setNoExitCommand()

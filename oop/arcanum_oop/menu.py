@@ -4,15 +4,16 @@ from simpleMenuIItem import Simple_menu_item
 #from editContext import EditContext
 
 class Menu(Menu_item):
-    def __init__(self,title = '',flag = True, noBack = True):    
+    def __init__(self,title = '',flag = True, noBack = True,forsedExit = True):    
         super().__init__(title)  
         self.__list_menu_item = []
         self.__flag = flag
         self.__noBack = noBack
-        self.startup_command = None  # выполняется до общего цикла
-        self.noExit_command = None #выполняется во врмя цикла
-        #self.tear_down_command = None # dвыполянется после цикла
-
+        self.__forsedExit = forsedExit
+        self.startup_command = None  
+        self.noExit_command = None 
+        
+       
     def run(self):
         if self.startup_command != None:
 
@@ -35,15 +36,20 @@ class Menu(Menu_item):
 
             x = self.proverka()
 
-            if self.noExit_command != None:
+            # if self.noExit_command != None :
                 
+            #     break
+            
+            if x == len(self.__list_menu_item)+1 or self.noExit_command != None :
+                # print(' До новых встреч\n')
+                #self.__forsedExit = True
                 break
             
-            if x == len(self.__list_menu_item)+1:
-                print(' До новых встреч\n')
-                break
-
             self.__list_menu_item[x-1].run()
+
+            if self.__forsedExit == False :
+                    break
+
 
         
     def setStartupCommand(self,programmCommand):
@@ -51,11 +57,6 @@ class Menu(Menu_item):
 
     def setNoExitCommand(self):
         self.noExit_command = True
-    
-
-    #def setTearDownCommand(self,programmCommand):
-    #    self.tear_down_command = programmCommand
-
 
     def addItems(self,title,foo):
         item = Simple_menu_item(title,foo)
@@ -66,6 +67,7 @@ class Menu(Menu_item):
         submenu = Menu(title,False,noBack)
         self.__list_menu_item.append(submenu)
         return submenu
+
 
 
     def proverka(self):
