@@ -1,5 +1,6 @@
 from menuItem import Menu_item
 from simpleMenuIItem import Simple_menu_item
+from simpleMenuItem_char import Simple_menu_item_char
 #from studentRegistry import StudentRegistry
 #from editContext import EditContext
 
@@ -60,6 +61,11 @@ class Menu(Menu_item):
 
     def addItems(self,title,foo):
         item = Simple_menu_item(title,foo)
+        self.__list_menu_item.append(item)
+        return item
+
+    def addItemsChar(self,title):
+        item = Simple_menu_item_char(title)
         self.__list_menu_item.append(item)
         return item
 

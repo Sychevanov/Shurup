@@ -1,9 +1,9 @@
 from abc import ABCMeta, abstractmethod
 
 class MobileObject(metaclass=ABCMeta):
-    def __init__(self, name, health, atack):
+    def __init__(self, name):
         self.__name = name
-        self.__health = health
+
 
     @property
     def name(self):

@@ -1,12 +1,9 @@
 from MobileObject import MobileObject
-
 class Char(MobileObject):
-    def __init__(self,name,health,atack,head, body, boots, hands):
-        super.__init__(self,head, body, boots, hands)
-        self.__head = head
-        self.__body = body
-        self.__boots = boots
-        self.__hands = hands
+
+    def __init__(self,name,race):
+        super().__init__(name)
+        
 
     @property
     def head(self):

@@ -1,9 +1,17 @@
-from menu import Menu
-from simpleMenuIItem import Simple_menu_item
-from menuItem import Menu_item
-from Char import Char
+# from menu import Menu
+# from simpleMenuIItem import Simple_menu_item
+# from menuItem import Menu_item
+# from Char import Char
 def foo():
     print('proverka')
+race = {'человек': [10,0,0, 0, 0, 0]}
+char = {'Здоровье': 100,
+            'Сила': 1,
+        'Ловкость': 1,
+         'Обаяние': 1,
+      'Технологии': 1,
+           'Магия': 1,
+                     }
 def createChar():
     createChar = ['human']
 
@@ -24,6 +32,7 @@ def printChar():
 def human():
     print('Люди (Human): как обычно, полная усредненность, никаких бонусов и пенальти, никакой предрасположенности к магии или технологии. Достаточно неплохо ладят со всеми остальными расами.')
     print('Обычно люди — хороший выбор для новичков, или, возможно, Из человека к концу игры можно слепить специалиста, причём в любой области. ')
+raceName = {'Человек': human}
 def elf():
     print('Эльфы (Elves): +1 Ловкость, +1 Обаяние, +1 склонность к магии. -10 Здоровье, -1 Сила')
     print('Прирожденные маги с аллергией на технологию. Эльфы достаточно высокомерно ведут себя со всеми остальными расами, а дварфов просто презирают.')

@@ -14,4 +14,6 @@ from picture_draw import zastavka
 
 main_menu = Menu()
 main_menu.addSubMenu('1')
+main_menu.addItemsChar("char1")
 main_menu.run()
+print(char)
