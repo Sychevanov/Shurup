@@ -11,10 +11,15 @@ class Simple_menu_item_char(Menu_item):
 
     def run(self):
         race = self.get_title()
-        raceName[race]()
-        x = input('Хотите продолжить этой расой?')
-        if x == 'Да':
+        raceName[race][0]()
+        print('Хотите продолжить этой расой?\n')
+        print('1. Да')
+        print('2. Нет')
+        x = int(input('Введите число: '))
+        if x == 1:
             name = input('Введите имя персонажа')
         
             char = Char(name,race)
             CharRegystry().addChar(char)
+            CharRegystry().raceCorrect(race)
+            CharRegystry().printChar()

@@ -10,10 +10,11 @@ from simpleMenuIItem import Simple_menu_item
 from menuItem import Menu_item
 from fx import foo, printChar, human
 from picture_draw import zastavka
+from Char import Char
+from charRegystry import CharRegystry
 
+human = Char('romom',0)
+Cr = CharRegystry()
+CharRegystry().addChar(human)
+Cr.printChar()
 
-main_menu = Menu()
-main_menu.addSubMenu('1')
-main_menu.addItemsChar("char1")
-main_menu.run()
-print(char)

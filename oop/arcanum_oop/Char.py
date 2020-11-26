@@ -3,7 +3,19 @@ class Char(MobileObject):
 
     def __init__(self,name,race):
         super().__init__(name)
-        
+        self.__race = race
+        self.__name = name
+        self.__head = None
+        self.__body = None
+        self.__boots = None
+        self.__hands = None
+        self.health = 100
+        self.strength = 1
+        self.agility = 1
+        self.charm = 1
+        self.technology = 1
+        self.magic = 1
+
 
     @property
     def head(self):
@@ -36,3 +48,4 @@ class Char(MobileObject):
     @hands.setter
     def hands(self,hands):
         self.__hands = hands 
+

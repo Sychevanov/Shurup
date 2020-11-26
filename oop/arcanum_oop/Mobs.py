@@ -11,3 +11,5 @@ class Mobs(MobileObject):
     @agro.setter
     def agro(self,agro):
         self.__agro = agro
+
+    
