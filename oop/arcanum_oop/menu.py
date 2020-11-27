@@ -12,16 +12,19 @@ class Menu(Menu_item):
         self.__noBack = noBack
         self.__forsedExit = forsedExit
         self.startup_command = None  
-        self.noExit_command = None 
+        self.forsed_command = None
         
        
     def run(self):
         if self.startup_command != None:
 
             self.startup_command()
-        
-
+            
         while True:
+
+            if self.forsed_command != None:
+                print('Должно вырубить')
+                break
 
             if self.__flag:
                 exitt = ' Выход\n' 
@@ -37,19 +40,15 @@ class Menu(Menu_item):
 
             x = self.proverka()
 
-            # if self.noExit_command != None :
-                
-            #     break
-            
-            if x == len(self.__list_menu_item)+1 or self.noExit_command != None :
-                # print(' До новых встреч\n')
-                #self.__forsedExit = True
+            if x == len(self.__list_menu_item)+1 :
                 break
             
             self.__list_menu_item[x-1].run()
 
             if self.__forsedExit == False :
                     break
+
+            
 
 
         
@@ -59,13 +58,16 @@ class Menu(Menu_item):
     def setNoExitCommand(self):
         self.noExit_command = True
 
+    # def setForsedCommand(self,programmCommand):
+    #     self.forsed_command = programmCommand
+
     def addItems(self,title,foo):
         item = Simple_menu_item(title,foo)
         self.__list_menu_item.append(item)
         return item
 
-    def addItemsChar(self,title):
-        item = Simple_menu_item_char(title)
+    def addItemsChar(self,title,menu):
+        item = Simple_menu_item_char(title,menu)
         self.__list_menu_item.append(item)
         return item
 
