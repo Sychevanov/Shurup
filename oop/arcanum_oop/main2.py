@@ -10,7 +10,7 @@ from ArcanumMainMenu import ArcanumMainMenu
 
 main_menu = Menu(title='',flag=True,noBack=True,forsedExit = False)
 main_menu.setStartupCommand(zastavka)
-main_menu.addItems("Новая игра",newGame)
+main_menu.addItems("Новая игра",newGame) 
 main_menu.addItems('Загрузить игру(В разработке)',foo)
 
 ArcanumMainMenu().addMainMenu(main_menu)

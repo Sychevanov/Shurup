@@ -21,8 +21,15 @@ class CharRegystry(metaclass=Singleton):
         self.__char = char
 
     def printChar(self):
-        print(self.__char.name)
-        print(self.__char.strength)
+        print('\nИмя',self.__char.name)
+        print("Здоровье",self.__char.health)
+        print("Сила",self.__char.strength)
+        print("Ловкость",self.__char.agility)
+        print("Шарм",self.__char.charm)
+        print("Технология",self.__char.technology)
+        print("Магия",self.__char.magic)
+        self.__char.printHands()
+        print('Атака', self.__char.atack())
 
     def raceCorrect(self,race):
         self.__char.health += raceName[race][1][0]

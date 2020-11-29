@@ -11,14 +11,15 @@ class Menu(Menu_item):
         self.__flag = flag
         self.__noBack = noBack
         self.__forsedExit = forsedExit
-        self.startup_command = None  
+        self.startup_command = [] 
         self.forsed_command = None
         
        
     def run(self):
         if self.startup_command != None:
 
-            self.startup_command()
+            for command in self.startup_command:
+                command()
             
         while True:
 
@@ -53,7 +54,7 @@ class Menu(Menu_item):
 
         
     def setStartupCommand(self,programmCommand):
-        self.startup_command = programmCommand
+        self.startup_command.append(programmCommand)
 
     def setNoExitCommand(self):
         self.noExit_command = True

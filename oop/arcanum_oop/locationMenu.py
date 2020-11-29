@@ -3,10 +3,12 @@ from simpleMenuIItem import Simple_menu_item
 from menuItem import Menu_item
 from fx import foo
 from newGame import newGame
-from picture_draw import zastavka
+from picture_draw import zastavka, dirijable, virdgil, mashin
 from ArcanumMainMenu import ArcanumMainMenu
 
-location_menu = Menu()
+location_menu = Menu(title="Разрушенный дирижабль")
+location_menu.setStartupCommand(dirijable)
+location_menu.setStartupCommand(mashin)
 location_menu.addItems('Осмотреть кого-нибдуь',foo)
 somewhere_menu = location_menu.addSubMenu('Идти куда-нибудь')
 somewhere_menu.addItems('Сдлеать что-нибдуь где нибудь_1',foo)
