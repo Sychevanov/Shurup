@@ -5,10 +5,11 @@ from fx import foo
 from newGame import newGame
 from picture_draw import zastavka, dirijable, virdgil, mashin
 from ArcanumMainMenu import ArcanumMainMenu
+from Dialogs import dialogVirgil
 
 location_menu = Menu(title="Разрушенный дирижабль")
 location_menu.setStartupCommand(dirijable)
-location_menu.setStartupCommand(mashin)
+location_menu.setStartupCommand(dialogVirgil)
 location_menu.addItems('Осмотреть кого-нибдуь',foo)
 somewhere_menu = location_menu.addSubMenu('Идти куда-нибудь')
 somewhere_menu.addItems('Сдлеать что-нибдуь где нибудь_1',foo)

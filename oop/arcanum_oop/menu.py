@@ -24,7 +24,7 @@ class Menu(Menu_item):
         while True:
 
             if self.forsed_command != None:
-                print('Должно вырубить')
+                # print('Должно вырубить')
                 break
 
             if self.__flag:
