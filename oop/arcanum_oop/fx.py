@@ -1,4 +1,5 @@
 
+
 def foo():
     print('proverka')
 
@@ -51,3 +52,19 @@ def beginLocation1():
     print('\nПосле разговора с Вирджилом, Вы решили осмотреться.\nПервым делом подошли к мертвому гному и нашли у него паспорт на имя Престона Рэдклиффа, посчитав, что вам это нужно, забрали его себе\nНемного придя в себя, вы решили оглядеться. ')
 def textLocation1():
     print('Пробираясь мимо разбросанных деталей дирижабля и кучи трупов, в скале вы видите пещеру.')
+
+
+
+
+
+#эту часть вынести, чтобы всегда было меню о персонаже
+def infoChar():
+    self.addSubMenu('О персонаже')
+    self.addItems('Харакатерисики',foo)
+    self.addItems('Журнал',foo)
+    self.addItems('Сумка',foo)
+    self.addItems('Инвертарь',foo)
+
+#ArcanumMainMenu().addLocMenu(location_menu)
+#ArcanumMainMenu().locRun()
+    

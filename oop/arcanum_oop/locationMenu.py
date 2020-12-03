@@ -7,7 +7,7 @@ from picture_draw import zastavka, dirijable, virdgil, mashin
 from ArcanumMainMenu import ArcanumMainMenu
 from Dialogs import dialogVirgil
 
-location_menu = Menu(title="Разрушенный дирижабль")
+location_menu = Menu(title="Разрушенный дирижабль",info=True)
 location_menu.setStartupCommand(dirijable)
 location_menu.setStartupCommand(dialogVirgil)
 location_menu.setStartupCommand(beginLocation1)

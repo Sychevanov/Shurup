@@ -1,16 +1,18 @@
 from menuItem import Menu_item
 from simpleMenuIItem import Simple_menu_item
 from simpleMenuItem_char import Simple_menu_item_char
+from fx import infoChar
 #from studentRegistry import StudentRegistry
 #from editContext import EditContext
 
 class Menu(Menu_item):
-    def __init__(self,title = '',flag = True, noBack = True,forsedExit = True):    
+    def __init__(self,title = '',flag = True, noBack = True,forsedExit = True, info = False):    
         super().__init__(title)  
         self.__list_menu_item = []
         self.__flag = flag
         self.__noBack = noBack
         self.__forsedExit = forsedExit
+        self.__info = info
         self.startup_command = [] 
         self.forsed_command = None
         
@@ -32,6 +34,9 @@ class Menu(Menu_item):
             else:
                 exitt = 'Назад'
             
+            if self.__info == True: #доделать
+                # self.addSubMenu('О персонаже')
+                self.infoChar()
 
             for i in range(len(self.__list_menu_item)):
                 print(i+1,' ',self.__list_menu_item[i].get_title())
@@ -58,6 +63,14 @@ class Menu(Menu_item):
 
     def setNoExitCommand(self):
         self.noExit_command = True
+
+    def infoChar(self):
+
+        info = self.addSubMenu('О персонаже')
+        info.addItems('Харакатерисики',1)
+        info.addItems('Журнал',1)
+        info.addItems('Сумка',1)
+        info.addItems('Инвертарь',1)
 
     # def setForsedCommand(self,programmCommand):
     #     self.forsed_command = programmCommand
