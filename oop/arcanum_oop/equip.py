@@ -1,7 +1,7 @@
 from abc import ABCMeta, abstractmethod
 
 class Equip(metaclass=ABCMeta):
-    def __init__(self, name, price):
+    def __init__(self, name, price, flag = True):
         self.__name = name
         self.__price = price
     
@@ -20,3 +20,6 @@ class Equip(metaclass=ABCMeta):
     @price.setter
     def price(self,price):
         self.__price = price 
+
+    def printName(self):
+        print(self.name)

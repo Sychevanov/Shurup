@@ -21,7 +21,7 @@ class Simple_menu_item_char(Menu_item):
         x = int(input('Введите число: '))
         if x == 1:
             self.menu.forsed_command = True
-            name = input('Введите имя персонажа: ')
+            name = input('Введите имя персонажа: ')# вместо ифов использовать массив как роказывал дмитриф
         
             char = Char(name,race)
             
@@ -41,4 +41,4 @@ class Simple_menu_item_char(Menu_item):
                 char.addWeapon(Bow)
             CharRegystry().addChar(char)
             CharRegystry().raceCorrect(race)
-            CharRegystry().printChar()
+            # CharRegystry().printChar()

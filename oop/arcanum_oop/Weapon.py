@@ -3,7 +3,7 @@ import random
 
 class Weapon(Equip):
     def __init__(self, name, price, power, miss):
-        super().__init__(name, price)
+        super().__init__(name, price,flag=True)
         self.__power = power
         self.__miss = miss
         self.__name = name
@@ -31,6 +31,8 @@ class Weapon(Equip):
     @name.setter
     def name(self,name):
         self.__name = name 
+
+    
 
 
 

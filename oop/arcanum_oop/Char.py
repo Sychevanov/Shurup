@@ -16,6 +16,7 @@ class Char(MobileObject):
         self.charm = 1
         self.technology = 1
         self.magic = 1
+        self.bag = [Weapon('Кремневый пистолет',10,[2,3],70)]
 
 
     @property

@@ -1,7 +1,40 @@
+def infoChar_menu():
+    from menu import Menu
+    from simpleMenuIItem import Simple_menu_item
+    from menuItem import Menu_item
+    from fx import foo, beginLocation1, textLocation1,infoChar_menu
+    from newGame import newGame
+    from picture_draw import zastavka, dirijable, virdgil, mashin
+    from ArcanumMainMenu import ArcanumMainMenu
+    from Dialogs import dialogVirgil
+    from charRegystry import CharRegystry
 
+    infoChar_menu = Menu('О персонаже')     #вынести в отдельный файл
+    infoChar_menu.setStartupCommand(spase)
+    infoChar_menu.addItems('Харакатерисики',CharRegystry().infoChar)
+    infoChar_menu.addItems('Журнал',foo)
+    infoChar_menu.addItems('Сумка',CharRegystry().bagToHands)
+    return infoChar_menu
+def spase():
+    print('///////////////////////////')
+def foo3():
+    print('Тина ЛОХ!!!!!!!!!')
+    print('ЛОООООООООООООООООООХ')
+def proverka(s,n1,n2):
+    while True:
+        x = input(s)
+        try:
+            x = int(x)
+            if x >= n1 and x <= n2:
+                break
+            else: 
+                print(f'Введите число от {n1} до {n2}')
+        except:
+            print('Введите цифру, а не букву')    
+    return x
 
 def foo():
-    print('proverka')
+    print('\nВ разработке')
 
 def printChar():
         print('------------------')
@@ -49,22 +82,11 @@ raceName = {'Человек': [human,[0,1,1,1,1,1,]],
                                 }
 
 def beginLocation1():
-    print('\nПосле разговора с Вирджилом, Вы решили осмотреться.\nПервым делом подошли к мертвому гному и нашли у него паспорт на имя Престона Рэдклиффа, посчитав, что вам это нужно, забрали его себе\nНемного придя в себя, вы решили оглядеться. ')
+    print('\nПосле разговора с Вирджилом, Вы решили осмотреться.\nПервым делом подошли к мертвому гному и нашли у него паспорт на имя Престона Рэдклиффа, посчитав, что вам это нужно, забрали его себе\nНемного придя в себя, вы решили оглядеться.\n ')
 def textLocation1():
     print('Пробираясь мимо разбросанных деталей дирижабля и кучи трупов, в скале вы видите пещеру.')
 
 
 
 
-
-#эту часть вынести, чтобы всегда было меню о персонаже
-def infoChar():
-    self.addSubMenu('О персонаже')
-    self.addItems('Харакатерисики',foo)
-    self.addItems('Журнал',foo)
-    self.addItems('Сумка',foo)
-    self.addItems('Инвертарь',foo)
-
-#ArcanumMainMenu().addLocMenu(location_menu)
-#ArcanumMainMenu().locRun()
     
