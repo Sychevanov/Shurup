@@ -10,16 +10,17 @@ def infoChar_menu():
     from charRegystry import CharRegystry
 
     infoChar_menu = Menu('О персонаже')     #вынести в отдельный файл
-    infoChar_menu.setStartupCommand(spase)
     infoChar_menu.addItems('Харакатерисики',CharRegystry().infoChar)
     infoChar_menu.addItems('Журнал',foo)
     infoChar_menu.addItems('Сумка',CharRegystry().bagToHands)
     return infoChar_menu
-def spase():
-    print('///////////////////////////')
-def foo3():
-    print('Тина ЛОХ!!!!!!!!!')
-    print('ЛОООООООООООООООООООХ')
+
+def printStep():
+   
+    print('----------------------------------------------------------------------------------------------------')
+    print('                                                 Ваш ход ')
+    print('------------------------------------------------------------------------------------------------------')
+
 def proverka(s,n1,n2):
     while True:
         x = input(s)

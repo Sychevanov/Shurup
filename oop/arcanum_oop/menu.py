@@ -1,6 +1,7 @@
 from menuItem import Menu_item
 from simpleMenuIItem import Simple_menu_item
 from simpleMenuItem_char import Simple_menu_item_char
+from simpleMenuItem_fight import Simple_menu_item_fight
 # from fx import infoChar
 #from studentRegistry import StudentRegistry
 #from editContext import EditContext
@@ -11,10 +12,11 @@ class Menu(Menu_item):
         self.__list_menu_item = []
         self.__flag = flag
         self.__noBack = noBack
-        self.__forsedExit = forsedExit
+        self.forsedExit = forsedExit
         self.__info = info
         self.startup_command = [] 
         self.forsed_command = None
+        self.tear_down_command = None
         
        
     def run(self):
@@ -51,12 +53,17 @@ class Menu(Menu_item):
             
             self.__list_menu_item[x-1].run()
 
-            if self.__forsedExit == False :
-                    break
+            if self.tear_down_command != None:
 
+                self.tear_down_command()
+
+            if self.forsedExit == False :
+                    break
+        
             
 
-
+    def setTearDownCommand(self,programmCommand):
+        self.tear_down_command = programmCommand
         
     def setStartupCommand(self,programmCommand):
         self.startup_command.append(programmCommand)
@@ -77,6 +84,11 @@ class Menu(Menu_item):
 
     def addItems(self,title,foo):
         item = Simple_menu_item(title,foo)
+        self.__list_menu_item.append(item)
+        return item
+
+    def addFightItem(self,title,mob):
+        item = Simple_menu_item_fight(title,mob)
         self.__list_menu_item.append(item)
         return item
 

@@ -10,6 +10,9 @@ class CharRegystry(metaclass=Singleton):
     def addChar(self, char):
         self.__char = char
 
+    def atack(self):
+        return self.__char.atack()
+
     def printChar(self):
         print('\nИмя',self.__char.name)
         print("Здоровье",self.__char.health)

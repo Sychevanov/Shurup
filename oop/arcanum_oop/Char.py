@@ -59,10 +59,12 @@ class Char(MobileObject):
 
     def atack(self):
         if self.__hands != None:
-            return self.__hands.power + self.strength + self.agility
+            atack = int(self.__hands.power + self.strength + self.agility)
+            return atack
         else:
             print('Вы бьете рукой')
-            return self.strength + self.agility
+            atack = int(self.strength + self.agility)
+            return atack
         
 
 
