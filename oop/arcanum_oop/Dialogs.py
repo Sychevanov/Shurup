@@ -30,9 +30,11 @@ VirgilNPC = [
 ['Хотите Вы этого или нет, но я все равно пойду с вами','*Мыслит про себя* "Мда... Почему предания не говорили, что "Живущий" будет таким козлом." Идем Мой Господин.Нам нужно идти в деревню - Туманные холмы и встретиться со старейшиной Иоахимом "',]       ,                  #3
 ]
 def dialogVirgil():
+    os.system('cls' if os.name == 'nt' else 'clear')
     s=['','','','']
     x=0
     for i in range(0,len(VirgilNPC[1])+1):
+        os.system('cls' if os.name == 'nt' else 'clear')
         print('')
         y = i-1
         print(VirgilNPC[x][y])

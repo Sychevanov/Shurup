@@ -3,6 +3,7 @@ from Char import Char
 from charRegystry import CharRegystry
 from fx import raceName, human
 from Weapon import Weapon
+import os
 
 class Simple_menu_item_char(Menu_item):
 
@@ -24,7 +25,7 @@ class Simple_menu_item_char(Menu_item):
             name = input('Введите имя персонажа: ')# вместо ифов использовать массив как роказывал дмитриф
         
             char = Char(name,race)
-            
+            os.system('cls' if os.name == 'nt' else 'clear')
             print('\nВыбеерите начальное снаряжение: ')
             print('1. Меч(1-4)')
             print('2. Кремневый пистолет(2-3)')

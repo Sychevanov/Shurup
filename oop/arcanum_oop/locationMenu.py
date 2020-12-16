@@ -8,7 +8,8 @@ from ArcanumMainMenu import ArcanumMainMenu
 from Dialogs import dialogVirgil
 from charRegystry import CharRegystry
 from fight import fight
-mob =1
+import os
+
 location_menu = Menu(title="Разрушенный дирижабль",info=True)
 location_menu.setStartupCommand(dirijable)
 location_menu.setStartupCommand(dialogVirgil)

@@ -52,6 +52,7 @@ def virdgil(s):
     print("      '.  '  .'     ") 
     print("        '''''")   
 def dirijable():
+    os.system('cls' if os.name == 'nt' else 'clear')
     print("       _..--=--..._")
     print("    .-'            '-.  .-.")
     print("   /.'              '.\/  /")

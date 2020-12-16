@@ -2,6 +2,8 @@ from menuItem import Menu_item
 from simpleMenuIItem import Simple_menu_item
 from simpleMenuItem_char import Simple_menu_item_char
 from simpleMenuItem_fight import Simple_menu_item_fight
+import os
+
 # from fx import infoChar
 #from studentRegistry import StudentRegistry
 #from editContext import EditContext
@@ -50,7 +52,7 @@ class Menu(Menu_item):
 
             if x == len(self.__list_menu_item)+1 :
                 break
-            
+            os.system('cls' if os.name == 'nt' else 'clear')
             self.__list_menu_item[x-1].run()
 
             if self.tear_down_command != None:

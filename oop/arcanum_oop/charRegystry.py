@@ -10,6 +10,12 @@ class CharRegystry(metaclass=Singleton):
     def addChar(self, char):
         self.__char = char
 
+    def health(self):
+        return self.__char.health
+
+    def healthCorrect(self,correct):
+        self.__char.health -= correct
+
     def atack(self):
         return self.__char.atack()
 
@@ -42,7 +48,7 @@ class CharRegystry(metaclass=Singleton):
             item.printName()
         print(len(self.__char.bag)+1, 'Назад')
         #x = int(input('Введите номе предмета, котоырй хотите взять в руки: '))
-        x = proverka('Введите номе предмета, котоырй хотите взять в руки: ',1,len(self.__char.bag))
+        x = proverka('Введите номе предмета, котоырй хотите взять в руки: ',1,len(self.__char.bag)+1)
         if x == len(self.__char.bag)+1:
             return
         self.addItem(self.__char.hands)
