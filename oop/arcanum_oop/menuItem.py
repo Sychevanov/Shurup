@@ -10,3 +10,5 @@ class Menu_item(metaclass=ABCMeta):
     
     def get_title(self):
         return self.__title
+    def editTitle(self):
+        self.__title = self.__title + '(Осмотрено)'

@@ -1,5 +1,6 @@
 from fx import raceName, proverka
 from singletone import Singleton
+from item import Item
 
 class CharRegystry(metaclass=Singleton):
 
@@ -30,6 +31,9 @@ class CharRegystry(metaclass=Singleton):
         self.__char.printHands()
         print('Атака', self.__char.atack())
 
+    def addRandItem(self):
+        self.addItem(Item('Хлеб',24)) #сделать случайное добавление итема
+
     def raceCorrect(self,race):
         self.__char.health += raceName[race][1][0]
         self.__char.strength += raceName[race][1][1]
@@ -39,6 +43,7 @@ class CharRegystry(metaclass=Singleton):
         self.__char.magic += raceName[race][1][5]
 
     def addItem(self,item):
+        print(f'Вы положили в сумку {item.name}')
         self.__char.bag.append(item)
 
 
@@ -48,14 +53,21 @@ class CharRegystry(metaclass=Singleton):
             item.printName()
         print(len(self.__char.bag)+1, 'Назад')
         #x = int(input('Введите номе предмета, котоырй хотите взять в руки: '))
-        x = proverka('Введите номе предмета, котоырй хотите взять в руки: ',1,len(self.__char.bag)+1)
+        x = proverka('Введите номер предмета, который хотите взять в руки: ',1,len(self.__char.bag)+1)
+        
         if x == len(self.__char.bag)+1:
             return
+
+        if self.__char.bag[x-1].noWeapon == True:
+            print(f'Вы, конечно можете взять в руки это, но врядли вы сможете нанести этим серьезный урон врагу')
+            return
+
         self.addItem(self.__char.hands)
         self.__char.addWeapon(self.__char.bag[x-1])
         del self.__char.bag[x-1]
 
     def infoChar(self):
+        print('-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-')
         print('\nИмя',self.__char.name)
         print("Здоровье",self.__char.health)
         print("Сила",self.__char.strength)
@@ -64,5 +76,5 @@ class CharRegystry(metaclass=Singleton):
         print("Технология",self.__char.technology)
         print("Магия",self.__char.magic)
         print('Экипировка: ',end='')
+        print('-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-')
         self.__char.printHands()
-        #print('Атака', self.__char.atack())

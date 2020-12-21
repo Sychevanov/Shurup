@@ -15,9 +15,6 @@ main_menu.addItems('Загрузить игру(В разработке)',foo)
 
 ArcanumMainMenu().addMainMenu(main_menu)
 ArcanumMainMenu().addMainMenu(location_menu)
-# game_menu = Menu()
-# game_menu.addItems('Продолжить игру',location_menu.run)
-# game_menu.addItems('Сохранить игру',foo)
-# ArcanumMainMenu().addMainMenu(game_menu)
+
 
 ArcanumMainMenu().mainRun()
