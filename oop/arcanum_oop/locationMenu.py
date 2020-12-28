@@ -20,15 +20,26 @@ somewhere_menu = location_menu.addSubMenu('Пройти вдоль разруш�
 somewhere_menu.setStartupCommand(textLocation1)
 somewhere_menu.addItems('Войти в пещеру',foo)
 somewhere_menu.addItems('Собрать рядом с пещерой цветы',fight)
+location_menu.addItems('Карта',ArcanumMainMenu().map)
 
 
+location_menu2 = Menu(title="Разрушенный дирижабль2",info=True)
+# location_menu2.setStartupCommand(dirijable)
+# location_menu2.setStartupCommand(dialogVirgil)
+# location_menu2.setStartupCommand(beginLocation1)
+location_menu2.addItems('Осмотреть мертвого человека2',foo)
+somewhere_menu2 = location_menu2.addSubMenu('Пройти вдоль разрушенного дирижабля2')
 
+somewhere_menu2.setStartupCommand(textLocation1)
+somewhere_menu2.addItems('Войти в пещеру2',foo)
+somewhere_menu2.addItems('Собрать рядом с пещерой цветы2',fight)
 
 
 
 
 
 location_menu.add_existing_submenu(infoChar_menu())
+location_menu2.add_existing_submenu(infoChar_menu())
 
 #ArcanumMainMenu().addLocMenu(location_menu)
 #ArcanumMainMenu().locRun()

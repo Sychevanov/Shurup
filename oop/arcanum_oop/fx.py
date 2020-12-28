@@ -13,6 +13,7 @@ def infoChar_menu():
     infoChar_menu.addItems('Харакатерисики',CharRegystry().infoChar)
     infoChar_menu.addItems('Журнал',foo)
     infoChar_menu.addItems('Сумка',CharRegystry().bagToHands)
+    infoChar_menu.addItems('Карта',ArcanumMainMenu().map)
     return infoChar_menu
 
 def printStep():
