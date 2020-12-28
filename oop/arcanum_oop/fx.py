@@ -13,6 +13,7 @@ def infoChar_menu():
     infoChar_menu.addItems('Харакатеристики',CharRegystry().infoChar)
     infoChar_menu.addItems('Журнал',foo)
     infoChar_menu.addItems('Сумка',CharRegystry().bagToHands)
+
     return infoChar_menu
 
 textLocation2 = '\nПосле крушения, Вы, как в первый раз наслаждаетесь, приятно пахнущими цветами, но откуда ни возьмись на вас напали.  \n'

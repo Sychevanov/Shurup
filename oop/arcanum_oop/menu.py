@@ -2,6 +2,7 @@ from menuItem import Menu_item
 from simpleMenuIItem import Simple_menu_item
 from simpleMenuItem_char import Simple_menu_item_char
 from simpleMenuItem_fight import Simple_menu_item_fight
+from ArcanumMainMenu import ArcanumMainMenu
 import os
 
 
@@ -40,12 +41,13 @@ class Menu(Menu_item):
                 print(i+1,'',self.__list_menu_item[i].get_title())
 
             if self.__noBack:
-                print(len(self.__list_menu_item)+1, '', exitt)
+
+                print(len(self.__list_menu_item)+2, '', exitt)
 
             x = self.proverka()
 
-            if x == len(self.__list_menu_item)+1 :
-                os.system('cls' if os.name == 'nt' else 'clear')
+            if x == len(self.__list_menu_item)+2 :
+                
                 break
             
             os.system('cls' if os.name == 'nt' else 'clear')
@@ -106,10 +108,10 @@ class Menu(Menu_item):
             x = input('Enter number: ')
             try:
                 x = int(x)
-                if x >= 1 and x <= len(self.__list_menu_item)+1:
+                if x >= 1 and x <= len(self.__list_menu_item)+2:
                     break
                 else: 
-                    print(f'Введите число от {1} до {len(self.__list_menu_item)+1}')
+                    print(f'Введите число от {1} до {len(self.__list_menu_item)+2}')
             except:
                 print('Введите цифру, а не букву')    
         return x
