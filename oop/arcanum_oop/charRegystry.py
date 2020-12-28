@@ -1,6 +1,7 @@
 from fx import raceName, proverka
 from singletone import Singleton
 from item import Item
+import os
 
 class CharRegystry(metaclass=Singleton):
 
@@ -43,7 +44,7 @@ class CharRegystry(metaclass=Singleton):
         self.__char.magic += raceName[race][1][5]
 
     def addItem(self,item):
-        print(f'Вы положили в сумку {item.name}')
+        print(f'Вы положили в сумку {item.name}\n')
         self.__char.bag.append(item)
 
 
@@ -53,7 +54,9 @@ class CharRegystry(metaclass=Singleton):
             item.printName()
         print(len(self.__char.bag)+1, 'Назад')
         #x = int(input('Введите номе предмета, котоырй хотите взять в руки: '))
-        x = proverka('Введите номер предмета, который хотите взять в руки: ',1,len(self.__char.bag)+1)
+        x = proverka('\nВведите номер предмета, который хотите взять в руки: ',1,len(self.__char.bag)+1)
+        os.system('cls' if os.name == 'nt' else 'clear')
+
         
         if x == len(self.__char.bag)+1:
             return
@@ -75,6 +78,7 @@ class CharRegystry(metaclass=Singleton):
         print("Шарм",self.__char.charm)
         print("Технология",self.__char.technology)
         print("Магия",self.__char.magic)
-        print('Экипировка: ',end='')
-        print('-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-')
+        print('Экипировка: ',end='')        
         self.__char.printHands()
+        print('')
+        print('-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-\n')

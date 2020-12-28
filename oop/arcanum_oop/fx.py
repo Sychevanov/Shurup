@@ -9,7 +9,7 @@ def infoChar_menu():
     from charRegystry import CharRegystry
     from item import Item
 
-    infoChar_menu = Menu('О персонаже',flag = True)    
+    infoChar_menu = Menu('О персонаже',flag = False)    
     infoChar_menu.addItems('Харакатеристики',CharRegystry().infoChar)
     infoChar_menu.addItems('Журнал',foo)
     infoChar_menu.addItems('Сумка',CharRegystry().bagToHands)
