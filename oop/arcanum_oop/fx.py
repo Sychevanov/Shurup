@@ -6,16 +6,17 @@ def infoChar_menu():
     from newGame import newGame
     from picture_draw import zastavka, dirijable, virdgil, mashin
     from ArcanumMainMenu import ArcanumMainMenu
-    from Dialogs import dialogVirgil
     from charRegystry import CharRegystry
+    from item import Item
 
-    infoChar_menu = Menu('О персонаже')     #вынести в отдельный файл
-    infoChar_menu.addItems('Харакатерисики',CharRegystry().infoChar)
+    infoChar_menu = Menu('О персонаже',flag = True)    
+    infoChar_menu.addItems('Харакатеристики',CharRegystry().infoChar)
     infoChar_menu.addItems('Журнал',foo)
     infoChar_menu.addItems('Сумка',CharRegystry().bagToHands)
     infoChar_menu.addItems('Карта',ArcanumMainMenu().map)
     return infoChar_menu
 
+textLocation2 = '\nПосле крушения, Вы, как в первый раз наслаждаетесь, приятно пахнущими цветами, но откуда ни возьмись на вас напали.  \n'
 def printStep():
    
     print('----------------------------------------------------------------------------------------------------')
@@ -86,7 +87,7 @@ raceName = {'Человек': [human,[0,1,1,1,1,1,]],
 def beginLocation1():
     print('\nПосле разговора с Вирджилом, Вы решили осмотреться.\nПервым делом подошли к мертвому гному и нашли у него паспорт на имя Престона Рэдклиффа, посчитав, что вам это нужно, забрали его себе\nНемного придя в себя, вы решили оглядеться.\n ')
 def textLocation1():
-    print('Пробираясь мимо разбросанных деталей дирижабля и кучи трупов, в скале вы видите пещеру.')
+    print('Пробираясь мимо разбросанных деталей дирижабля и кучи трупов, в скале вы видите пещеру.\n')
 
 
 

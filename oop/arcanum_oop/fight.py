@@ -5,9 +5,9 @@ from fx import foo, beginLocation1, textLocation1,infoChar_menu
 from newGame import newGame
 from picture_draw import zastavka, dirijable, virdgil, mashin
 from ArcanumMainMenu import ArcanumMainMenu
-from Dialogs import dialogVirgil
 from charRegystry import CharRegystry
 from Mob import Mobs
+from ArcanumMainMenu import ArcanumMainMenu
 import os
 
 class Fight():
@@ -44,6 +44,7 @@ class Fight():
         print('----------------------------------------------------------------------------------------------------')
         print('')
         print('------------------------------------******************************----------------------------------')
+<<<<<<< HEAD
         print(f'------------------------------------******Ваше здоровье:{self.char.health()}*******---------------------------------',end='')
         if self.char.health() // 10 == 0:
             print('-',end = '')
@@ -53,6 +54,17 @@ class Fight():
             print('--')
         print(f'------------------------------------******Здоровье врага:{self.mob.health}******----------------------------------')
         print('------------------------------------******************************----------------------------------\n\n')
+=======
+        print(f'------------------------------------******Ваше здоровье:{self.char.health()}*******------------------------------')
+        print(f'------------------------------------******Здоровье врага:{self.mob.health}******-------------------------------')
+        print('------------------------------------******************************-------------------------\n\n')
+        if self.char.health() <= 0: 
+            print('Вы проиграли!')
+            input('Нажмите любую клавишу и Enter для продолжения:')
+            os.system('cls' if os.name == 'nt' else 'clear')
+            ArcanumMainMenu().listMenu[0].run()
+            
+>>>>>>> 7817fb67030d7ed7801cb35755371c1435f884df
         
         
     def atack(self):
@@ -65,8 +77,8 @@ class Fight():
         if self.mob.health <= 0:
             print('Вы Победили')
             self.fight_menu.forsed_command = True
-        elif self.char.health() <= 0: 
-            print('Вы проиграли!')
+            os.system('cls' if os.name == 'nt' else 'clear')
+        
             
             
 
@@ -80,8 +92,8 @@ def fight():
     fight_menu.setTearDownCommand(fight.stepMob)
     fight_menu.addItems('Атаковать',fight.atack)
 
-    fight_menu.addItems('Попытаться договориться',foo)
-    fight_menu.addItems('Сбежать',foo)
+    fight_menu.addItems('Попытаться договориться(В разработке)',foo)
+    fight_menu.addItems('Сбежать(В разработке)',foo)
     fight_menu.add_existing_submenu(infoChar_menu())
 
 

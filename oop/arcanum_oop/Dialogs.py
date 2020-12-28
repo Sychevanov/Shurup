@@ -1,5 +1,6 @@
 from picture_draw import virdgil
 import os
+from fx import proverka
                         # 0                               1                           2
 listSayChar = [
 ['добрый положительныйChar  1',"добрый ПолодительныйChar  2","добрый положительныйChar  3"],    #0
@@ -29,22 +30,34 @@ VirgilNPC = [
 ['Я монах - Вирджил, предания говоярят,о том что выживет один - "Живущий", я пойду с вами.','Тогда нам нужно идти в деревню - Туманные холмы и встретиться со старейшиной Иоахимом',]           ,                 #2
 ['Хотите Вы этого или нет, но я все равно пойду с вами','*Мыслит про себя* "Мда... Почему предания не говорили, что "Живущий" будет таким козлом." Идем Мой Господин.Нам нужно идти в деревню - Туманные холмы и встретиться со старейшиной Иоахимом "',]       ,                  #3
 ]
-def dialogVirgil():
-    os.system('cls' if os.name == 'nt' else 'clear')
-    s=['','','','']
-    x=0
-    for i in range(0,len(VirgilNPC[1])+1):
-        os.system('cls' if os.name == 'nt' else 'clear')
-        print('')
-        y = i-1
-        print(VirgilNPC[x][y])
-        print('')
-        virdgil(s)
-        if i==len(VirgilNPC[1]):
-            break
-        for j in range(0,len(VirgilChar)):
-            if VirgilChar[j][i] != '': 
-                print(j+1,'',VirgilChar[j][i])
-        
-        x = int(input('\nВведите ответ: '))
+
     
+class Dialog():
+    def __init__(self):
+        self.listSayChar = {}
+        self.listSayMob = {}
+
+    def addDialog(self,listSayChar,listSayMob):
+        self.listSayChar = listSayChar
+        self.listSayMob = listSayMob
+
+    def run(self):
+        os.system('cls' if os.name == 'nt' else 'clear')
+        s=['','','',''] #ненужен
+        x = 0
+        for i in range(0,len(self.listSayChar[1])+1):
+            os.system('cls' if os.name == 'nt' else 'clear')
+            print('')
+            y = i-1
+            print(self.listSayChar[x][y])
+            print('')
+            virdgil(s)
+            if i==len(self.listSayChar[1]):
+                break
+            for j in range(0,len(self.listSayMob)):
+                if self.listSayMob[j][i] != '': 
+                    print(j+1,'',self.listSayMob[j][i])
+            
+
+            x = proverka('\nВведите ответ: ',1,len(VirgilChar))
+

@@ -5,18 +5,16 @@ from simpleMenuItem_fight import Simple_menu_item_fight
 from ArcanumMainMenu import ArcanumMainMenu
 import os
 
-# from fx import infoChar
-#from studentRegistry import StudentRegistry
-#from editContext import EditContext
 
 class Menu(Menu_item):
-    def __init__(self,title = '',flag = True, noBack = True,forsedExit = True, info = False):    
+    def __init__(self,title = '',flag = True, noBack = True,forsedExit = True, info = False, start = True):    
         super().__init__(title)  
         self.__list_menu_item = []
         self.__flag = flag
         self.__noBack = noBack
         self.forsedExit = forsedExit
         self.__info = info
+        self.start = start
         self.startup_command = [] 
         self.forsed_command = None
         self.tear_down_command = None
@@ -28,23 +26,19 @@ class Menu(Menu_item):
             for command in self.startup_command:
                 command()
             
-        while True:
+        while self.start != None:
 
             if self.forsed_command != None:
-                # print('Должно вырубить')
+
                 break
 
             if self.__flag:
                 exitt = 'Выход\n' 
             else:
                 exitt = 'Назад\n'
-            
-            # if self.__info == True: #доделать
-            #     # self.addSubMenu('О персонаже')
-            #     self.infoChar()
 
             for i in range(len(self.__list_menu_item)):
-                print(i+1,' ',self.__list_menu_item[i].get_title())
+                print(i+1,'',self.__list_menu_item[i].get_title())
 
             if self.__noBack:
                 print(len(self.__list_menu_item)+1, '', 'Карта')
@@ -52,12 +46,18 @@ class Menu(Menu_item):
 
             x = self.proverka()
             if x == len(self.__list_menu_item)+1 :
+<<<<<<< HEAD
                 ArcanumMainMenu().map()
                 break
             if x == len(self.__list_menu_item)+2 :
                 
+=======
+                os.system('cls' if os.name == 'nt' else 'clear')
+>>>>>>> 7817fb67030d7ed7801cb35755371c1435f884df
                 break
+            
             os.system('cls' if os.name == 'nt' else 'clear')
+
             self.__list_menu_item[x-1].run()
 
             if self.tear_down_command != None:
@@ -66,6 +66,7 @@ class Menu(Menu_item):
 
             if self.forsedExit == False :
                     break
+
         
             
 
@@ -78,19 +79,11 @@ class Menu(Menu_item):
     def setNoExitCommand(self):
         self.noExit_command = True
 
-    # def infoChar(self):``
+    def startCommand(self):
+        self.start = None
 
-    #     info = self.addSubMenu('О персонаже')
-    #     info.addItems('Харакатерисики',1)
-    #     info.addItems('Журнал',1)
-    #     info.addItems('Сумка',1)
-    #     info.addItems('Инвертарь',1)
-
-    # def setForsedCommand(self,programmCommand):
-    #     self.forsed_command = programmCommand
-
-    def addItems(self,title,foo):
-        item = Simple_menu_item(title,foo)
+    def addItems(self,title,foo, flag = True,printText=''):
+        item = Simple_menu_item(title,foo,flag,printText)
         self.__list_menu_item.append(item)
         return item
 
@@ -129,15 +122,3 @@ class Menu(Menu_item):
                 print('Введите цифру, а не букву')    
         return x
 
-
-
-#editContext = EditConext()
-#main_menu = Menu('Main_menu',True)
-#student_menu = Menu('Students')
-#main_menu.add(Menu('Main_menu_item_1'))
-#main_menu.add(student_menu)
-#simple = Simple_menu_item('Print',foo)
-#main_menu.add(simple)
-#student_menu.add(Menu('Students'))
-#student_menu.add(Menu('Students2'))
-#main_menu.run()

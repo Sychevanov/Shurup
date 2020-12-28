@@ -15,11 +15,15 @@ main_menu.addItems('Загрузить игру(В разработке)',foo)
 
 ArcanumMainMenu().addMainMenu(main_menu)
 ArcanumMainMenu().addMainMenu(location_menu)
+<<<<<<< HEAD
 ArcanumMainMenu().addMainMenu(location_menu2)
 
 # game_menu = Menu()
 # game_menu.addItems('Продолжить игру',location_menu.run)
 # game_menu.addItems('Сохранить игру',foo)
 # ArcanumMainMenu().addMainMenu(game_menu)
+=======
+
+>>>>>>> 7817fb67030d7ed7801cb35755371c1435f884df
 
 ArcanumMainMenu().mainRun()

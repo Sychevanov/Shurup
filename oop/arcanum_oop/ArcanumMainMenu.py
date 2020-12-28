@@ -1,19 +1,22 @@
 from singletone import Singleton
 class ArcanumMainMenu(metaclass=Singleton):
     def __init__(self):
-        self.__listMenu = []
-        # self.__listLocMenu = []
+        self.listMenu = []
+
 
     def addMainMenu(self,menu):
+<<<<<<< HEAD
         self.__listMenu.append(menu)
         self.menu = menu
+=======
+        self.listMenu.append(menu)
 
-    # def addLocMenu(self,menu):
-    #     self.__listLocMenu.append(menu)
-    
+>>>>>>> 7817fb67030d7ed7801cb35755371c1435f884df
+
     def mainRun(self):
-        for menu in self.__listMenu:
+        for menu in self.listMenu:
             menu.run()
+<<<<<<< HEAD
     def map(self):
         for i, menuTitle in enumerate(self.__listMenu[1:]):
             print(i+1, menuTitle.get_title())
@@ -29,3 +32,5 @@ class ArcanumMainMenu(metaclass=Singleton):
 # for i,item in enumerate(self.__char.bag): #доделать, меню"что сделать с предметом" выкинуть, надеть, почитать описание и тд"
 #             print(i+1, end='')
 #             item.printName()
+=======
+>>>>>>> 7817fb67030d7ed7801cb35755371c1435f884df

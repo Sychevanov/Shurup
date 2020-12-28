@@ -3,10 +3,11 @@ import random
 
 class Weapon(Equip):
     def __init__(self, name, price, power, miss):
-        super().__init__(name, price,flag=True)
+        super().__init__(name, price)
         self.__power = power
         self.__miss = miss
         self.__name = name
+        self.noWeapon = False
 
     @property
     def power(self):
@@ -27,6 +28,9 @@ class Weapon(Equip):
     @property
     def name(self):
         return self.__name,self.__power[0],self.__power[1]
+
+    def printName(self):
+        print('',self.__name, self.__power[0],'-',self.__power[1])
     
     @name.setter
     def name(self,name):
@@ -34,7 +38,3 @@ class Weapon(Equip):
 
     
 
-
-
-# Sword = Weapon('Меч',10,[1,4],70)
-# Sword.namePower()

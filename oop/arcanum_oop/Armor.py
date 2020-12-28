@@ -2,7 +2,7 @@ from equip import Equip
 
 class Armor(Equip):
     def __init__(self, name, price, armor):
-        super.__init__(self, armor)
+        super().__init__(self, armor)
         self.__armor = armor
         
     @property

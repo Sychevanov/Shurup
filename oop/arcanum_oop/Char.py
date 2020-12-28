@@ -68,13 +68,3 @@ class Char(MobileObject):
         
 
 
-
-
-# char = Char('name',1)
-
-
-# Sword = Weapon('Меч',10,[1,4],70)
-# char.addWeapon(Sword)
-# # print(char.atack())
-# # print(char.printHands())
-# print(char.hands.power)
