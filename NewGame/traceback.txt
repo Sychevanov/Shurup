@@ -1,0 +1,26 @@
+﻿I'm sorry, but an uncaught exception occurred.
+
+While running game code:
+  File "game/script.rpy", line 10, in script
+    init python:
+  File "game/script.rpy", line 19, in <module>
+    # Вместо использования оператора image можете просто
+TypeError: getName() takes no arguments (1 given)
+
+-- Full Traceback ------------------------------------------------------------
+
+Full traceback:
+  File "game/script.rpy", line 10, in script
+    init python:
+  File "/home/roman/Загрузки/renpy-7.3.5-sdk/renpy/ast.py", line 914, in execute
+    renpy.python.py_exec_bytecode(self.code.bytecode, self.hide, store=self.store)
+  File "/home/roman/Загрузки/renpy-7.3.5-sdk/renpy/python.py", line 2028, in py_exec_bytecode
+    exec bytecode in globals, locals
+  File "game/script.rpy", line 19, in <module>
+    # Вместо использования оператора image можете просто
+TypeError: getName() takes no arguments (1 given)
+
+Linux-5.4.0-58-generic-x86_64-with-debian-bullseye-sid
+Ren'Py 7.3.5.606
+NewGame 1.0
+Mon Dec 28 21:49:57 2020
